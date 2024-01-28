@@ -1,0 +1,18 @@
+x vuetify
+x page
+x component
+x layout
+x compose
+flat file
+x load csv
+export map files
+
+Special Dirs: layouts, pages, components, layouts/default.vue
+Assumes it is the root of the domain.
+equiv of "to" 
+  <NuxtLink to="/about">About</NuxtLink>
+npm nuxi generate
+
+Qs
+public directory - for xlxs files
+How to export map files?

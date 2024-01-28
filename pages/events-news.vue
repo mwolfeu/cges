@@ -1,0 +1,3 @@
+<template >
+  Events News
+</template>
