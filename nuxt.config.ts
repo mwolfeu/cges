@@ -1,11 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
-  build: {
-    publicPath: '/cges/'
-  },
-  app: {
-    baseURL: '/cges/'
+  // app: {
+  //   baseURL: '/cges/'
+  //},
+
+  router: {
+    base: '/<my-github-repository-name>/'
   },
   devtools: { enabled: true },
   modules: [
