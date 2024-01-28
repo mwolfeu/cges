@@ -1,9 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
-  // app: {
-  //   baseURL: '/cges/'
-  //},
+  app: {
+    baseURL: '/cges/'
+  },
 
   router: {
     base: '/cges/'
