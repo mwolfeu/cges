@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   //},
 
   router: {
-    base: '/<my-github-repository-name>/'
+    base: '/cges/'
   },
   devtools: { enabled: true },
   modules: [
