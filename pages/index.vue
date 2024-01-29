@@ -3,14 +3,14 @@
 
     <Carousel class="mt-4 h-75 ma-auto" :autoplay="4000" :items-to-show="2.5" :wrap-around="true">
       <Slide v-for="slide in 5" :key="slide">
-        <v-img @click="console.log('hi')" class="carousel__item" :src="`/img/p${slide}.jpg`"></v-img>
+        <v-img @click="console.log('hi')" class="carousel__item" :src="`/cges/img/p${slide}.jpg`"></v-img>
       </Slide>
       <template #addons>
         <Pagination />
       </template>
     </Carousel>
 
-    <div class="w-100 mt-6 pb-6" style="background-image: url('/bg.png');  background-repeat: repeat;">
+    <div class="w-100 mt-6 pb-6" style="background-image: url('/cges/bg.png');  background-repeat: repeat;">
       <div class="ma-auto d-flex flex-row">
         <v-row class="w-75 justify-center">
           <div class="w-25 ma-4">

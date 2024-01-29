@@ -39,7 +39,7 @@
     <slot />
   </div>
   <div class="bg-primary">
-    <div class="footer-top"></div>
+    <div class="footer-tosp"></div>
     <div class="text-textl ml-4 mr-4 pb-4 d-flex flex-nowrap justify-space-between">
       <span>© 2024 Center on Gender and Extreme Sentencing</span>
       <span>
@@ -69,7 +69,7 @@ html {
 }
 
 .icon {
-  background-image: url('/img/logo.png');
+  background-image: url('/cges/img/logo.png');
   background-size: cover;
   width: 70px;
   height: 70px;
