@@ -48,11 +48,12 @@
     hello
     <test />
   </div>
-</template> 
+</template>
 <script>
 import { Carousel, Pagination, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
 import { LoremIpsum } from "lorem-ipsum";
+import * as XLSX from 'xlsx/xlsx.mjs';
 
 export default {
 
@@ -61,13 +62,31 @@ export default {
     Slide,
     Pagination,
   },
+  async mounted() {
+    // const wb = await this.parse_from_url("/cges/content.xlsx");
+    // const sheet = wb.Sheets[wb.SheetNames[0]]
+    // this.categories = XLSX.utils.sheet_to_json(wb.Sheets['Main Categories']);
+    // console.log("len", wb.SheetNames, JSON.stringify(json));
+    // console.log(JSON.stringify(json));
+
+  },
   data() {
     return {
+      // data: { sheet1: [] },
+      categories: [],
       li: new LoremIpsum(),
       layout: "default",
     }
   },
+  methods: {
+    async parse_from_url(url) {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("fetch failed");
+      const ab = await res.arrayBuffer();
+      console.log("blob", ab);
+      const workbook = XLSX.read(ab);
+      return workbook;
+    }
+  },
 }
 </script>
-
-

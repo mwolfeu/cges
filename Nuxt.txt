@@ -1,0 +1,6 @@
+live changes:
+npm run dev
+
+deploy:
+npx nuxi generate
+

@@ -1,19 +1,26 @@
 <template>
   <div>
     <div class="bg-primary logo">
-
-
       <div class="pt-4 ml-6 mr-6">
         <div class="d-flex flex-row justify-start align-center">
           <NuxtLink to="/">
             <div class="icon mr-4"></div>
-          </NuxtLink> <!-- <v-icon color="white">mdi-face-woman</v-icon> -->
+          </NuxtLink>
+          <!-- <v-icon color="white">mdi-face-woman</v-icon> -->
           <div class="icon-text">Center on Gender and Extreme Sentencing</div>
         </div>
 
-        <v-divider class="border-opacity-50 mt-4 mb-4" color="white"></v-divider>
+        <v-divider
+          class="border-opacity-50 mt-4 mb-4"
+          color="white"
+        ></v-divider>
         <div class="pb-4">
-          <v-btn to="/women" color="textl" variant="text">
+          <span v-for="(c,i) of categories" :key="c">
+            <v-btn :to="`${c.link}`" color="textl" variant="text" :text="`${c.category}`" prepend-icon="mdi-square"/>  
+            <!-- <span v-if="i != categories.length-1">&#x25A0;</span> -->
+          </span>
+
+          <!-- <v-btn to="/women" color="textl" variant="text">
             Women On Death Row
           </v-btn>
           &#x25A0;
@@ -31,16 +38,17 @@
           &#x25A0;
           <v-btn to="/about" color="textl" variant="text">
             About
-          </v-btn>
+          </v-btn> -->
         </div>
-
       </div>
     </div>
-    <slot />
+    <slot site="dorkus"></slot>
   </div>
   <div class="bg-primary">
-    <div class="footer-tosp"></div>
-    <div class="text-textl ml-4 mr-4 pb-4 d-flex flex-nowrap justify-space-between">
+    <div class="footer-top"></div>
+    <div
+      class="text-textl ml-4 mr-4 pb-4 d-flex flex-nowrap justify-space-between"
+    >
       <span>© 2024 Center on Gender and Extreme Sentencing</span>
       <span>
         <v-icon>mdi-facebook</v-icon>
@@ -50,26 +58,54 @@
         <v-icon>mdi-email</v-icon>
       </span>
     </div>
-
   </div>
 </template>
+
+<script>
+import * as XLSX from "xlsx/xlsx.mjs";
+
+export default {
+  components: {},
+  async mounted() {
+    const wb = await this.parse_from_url("/cges/content.xlsx");
+    const sheet = wb.Sheets[wb.SheetNames[0]];
+    this.categories = XLSX.utils.sheet_to_json(wb.Sheets["Main Categories"]);
+  },
+  data() {
+    return {
+      categories: [],
+    };
+  },
+  methods: {
+    async parse_from_url(url) {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("fetch failed");
+      const ab = await res.arrayBuffer();
+      // console.log("blob", ab);
+      const workbook = XLSX.read(ab);
+      return workbook;
+    },
+  },
+};
+</script>
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap");
 
 html {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
 }
 
 .logo {
-  font-family: 'Source Serif 4', serif;
+  font-family: "Source Serif 4", serif;
   font-size: 28px;
   font-weight: 700;
   color: white;
 }
 
 .icon {
-  background-image: url('/cges/img/logo.png');
+  background-image: url("/cges/img/logo.png");
   background-size: cover;
   width: 70px;
   height: 70px;
@@ -80,7 +116,7 @@ html {
 }
 
 .footer-top {
-  background-image: url('/wave.svg');
+  background-image: url("/wave.svg");
   background-size: cover;
   width: 100%;
   height: 100px;

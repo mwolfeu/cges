@@ -14,11 +14,11 @@ export default {
     }
   },
   async mounted() {
-    console.log("hi");
-    const wb = await this.parse_from_url("/cges/text.xlsx");
-    const sheet = wb.Sheets[wb.SheetNames[0]]
-    const json = XLSX.utils.sheet_to_json(sheet);
-    console.log("len", wb.SheetNames, JSON.stringify(json));
+    // console.log("hi");
+    // const wb = await this.parse_from_url("/cges/text.xlsx");
+    // const sheet = wb.Sheets[wb.SheetNames[0]]
+    // const json = XLSX.utils.sheet_to_json(sheet);
+    // console.log("len", wb.SheetNames, JSON.stringify(json));
   },
   methods: {
     click() { console.log("hi ") },
@@ -33,4 +33,3 @@ export default {
   },
 }
 </script>
-
