@@ -7,6 +7,19 @@ flat file
 x load csv
 export map files
 
+21.04.24
+About / Team
+Redo layout header
+Add text color to landing 
+only add instagram
+change carousel to be clickable / womens pictures
+create womens page
+cards: make all popup, add pdf functionality
+
+
+
+
+
 Special Dirs: layouts, pages, components, layouts/default.vue
 Assumes it is the root of the domain.
 equiv of "to" 
@@ -16,3 +29,13 @@ npm nuxi generate
 Qs
 public directory - for xlxs files
 How to export map files?
+
+
+############
+# REFRENCE #
+############
+
+Wes Anderson colors
+https://github.com/karthik/wesanderson/blob/master/R/colors.R
+
+Avatar Creator https://pmav.eu/stuff/pictar/

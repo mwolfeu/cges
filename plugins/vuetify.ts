@@ -1,12 +1,12 @@
 // plugins/vuetify.ts
 
-import { createVuetify } from 'vuetify'
+import { createVuetify } from "vuetify";
 
-export default defineNuxtPlugin(nuxtApp => {
+export default defineNuxtPlugin((nuxtApp) => {
   const vuetify = createVuetify({
     // your config will come here
     theme: {
-      defaultTheme: 'site',
+      defaultTheme: "site",
       themes: {
         site: {
           dark: false,
@@ -17,23 +17,23 @@ export default defineNuxtPlugin(nuxtApp => {
             "lt-blue": "#9EDFC9",
             lilac: "#D4A8E2",
             purple: "#472D47",
-            background: '#FFFFFF',
-            surface: '#FAFAFA',
-            textl: '#FFFFFF',
-            textg: '#AEB0B0',
-            primary: '#D4A8E2',
+            background: "#FFFFFF",
+            surface: "#FAFAFA",
+            textl: "#FFFFFF",
+            textg: "#AEB0B0",
+            primary: "#E6A0C4",
             // 'primary-darken-1': '#3700B3',
-            secondary: '#A0007D',
+            secondary: "#A0007D",
             // 'secondary-darken-1': '#018786',
-            error: '#B00020',
-            info: '#2196F3',
-            success: '#4CAF50',
-            warning: '#FB8C00',
+            error: "#B00020",
+            info: "#2196F3",
+            success: "#4CAF50",
+            warning: "#FB8C00",
           },
-        }
-      }
-    }
-  })
+        },
+      },
+    },
+  });
 
-  nuxtApp.vueApp.use(vuetify)
-})
+  nuxtApp.vueApp.use(vuetify);
+});

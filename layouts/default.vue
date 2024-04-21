@@ -15,8 +15,14 @@
           color="white"
         ></v-divider>
         <div class="pb-4">
-          <span v-for="(c,i) of categories" :key="c">
-            <v-btn :to="`${c.link}`" color="textl" variant="text" :text="`${c.category}`" prepend-icon="mdi-square"/>  
+          <span v-for="(c, i) of categories" :key="c">
+            <v-btn
+              :to="`${c.link}`"
+              color="textl"
+              variant="text"
+              :text="`${c.category}`"
+              prepend-icon="mdi-square"
+            />
             <!-- <span v-if="i != categories.length-1">&#x25A0;</span> -->
           </span>
 
@@ -45,7 +51,7 @@
     <slot site="dorkus"></slot>
   </div>
   <div class="bg-primary">
-    <div class="footer-top"></div>
+    <!-- <div class="footer-top"></div> -->
     <div
       class="text-textl ml-4 mr-4 pb-4 d-flex flex-nowrap justify-space-between"
     >
@@ -90,16 +96,18 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap"); */
+/* @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap'); */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Sen:wght@400..800&display=swap");
 
 html {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Sen", sans-serif;
   font-size: 16px;
 }
 
 .logo {
-  font-family: "Source Serif 4", serif;
-  font-size: 28px;
+  font-family: "Raleway", serif;
+  font-size: 40px;
   font-weight: 700;
   color: white;
 }
