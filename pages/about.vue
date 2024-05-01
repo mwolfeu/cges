@@ -1,10 +1,10 @@
 <template>
   <div class="d-flex flex-column justify-center align-center">
-    <div>
+    <!-- <div>
       <v-card class="ma-6" width="600">
         <v-card-item>
           <v-card-title>Mission</v-card-title>
-          <!-- <v-card-subtitle>This is a subtitle</v-card-subtitle> -->
+          <!- - <v-card-subtitle>This is a subtitle</v-card-subtitle> - ->
         </v-card-item>
         <v-card-text>
           <v-img class="ma-4"
@@ -16,13 +16,38 @@
           ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
         </v-card-text>
       </v-card>
+    </div> -->
+    <div class="w-100 mt-6 pb-6">
+      <div
+        v-for="c of content"
+        :key="c"
+        class="w-100 d-flex pt-4"
+        :style="`background-color:${c.BgColor}; color:${c.FgColor};`"
+      >
+        <div class="d-flex w-75 justify-center ma-auto">
+          <div v-if="c.Type == 'title'" style="font-size: 40px" class="mb-8">
+            {{ unquote(c.Section) }}
+          </div>
+          <div v-if="c.Type == 'normal'" style="font-size: 20px" class="mb-4">
+            {{ unquote(c.Section) }}
+          </div>
+          <div
+            v-if="c.Type == 'picture'"
+            style="font-size: 20px"
+            class="mb-4 w-25"
+          >
+            <v-img :src="`/cges/img/${c.Section}`"> </v-img>
+          </div>
+          <div v-if="c.Type == 'space'" class="mb-16" />
+        </div>
+      </div>
     </div>
 
-    <div class="bg-secondary" style="padding: 30px 1000px;">
+    <!-- <div class="bg-secondary" style="padding: 30px 1000px;">
       <v-card width="600">
         <v-card-item>
           <v-card-title>Vision</v-card-title>
-          <!-- <v-card-subtitle>This is a subtitle</v-card-subtitle> -->
+          <!- - <v-card-subtitle>This is a subtitle</v-card-subtitle> - ->
         </v-card-item>
         <v-card-text>
           <v-img class="ma-4" style="height:100px; width:100px; float:right;"
@@ -37,13 +62,13 @@
           maiores alias consequatur aut perferendis doloribus asperiores repellat.
         </v-card-text>
       </v-card>
-    </div>
+    </div> -->
 
-    <div>
+    <!-- <div>
       <v-card class="ma-6" width="600">
         <v-card-item>
           <v-card-title>Team</v-card-title>
-          <!-- <v-card-subtitle>This is a subtitle</v-card-subtitle> -->
+          <!- - <v-card-subtitle>This is a subtitle</v-card-subtitle> - ->
         </v-card-item>
         <v-card-text>
           <v-img class="ma-4"
@@ -58,6 +83,44 @@
           quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
         </v-card-text>
       </v-card>
-    </div>
+    </div> -->
   </div>
 </template>
+<script>
+import * as XLSX from "xlsx/xlsx.mjs";
+
+export default {
+  components: {},
+  async mounted() {
+    const wb = await this.parse_from_url("/cges/content.xlsx");
+    this.content = XLSX.utils.sheet_to_json(wb.Sheets["About"]);
+  },
+  data() {
+    return {
+      content: [],
+    };
+  },
+  methods: {
+    unquote(str) {
+      if (
+        (str.startsWith('"') && str.endsWith('"')) ||
+        (str.startsWith("'") && str.endsWith("'"))
+      ) {
+        // Check if the string starts and ends with the same quote character
+        return str.slice(1, -1); // Return the string without the first and last character
+      } else {
+        // If the string doesn't start and end with the same quote character, return the original string
+        return str;
+      }
+    },
+    async parse_from_url(url) {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("fetch failed");
+      const ab = await res.arrayBuffer();
+      console.log("blob", ab);
+      const workbook = XLSX.read(ab);
+      return workbook;
+    },
+  },
+};
+</script>

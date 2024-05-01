@@ -2,16 +2,14 @@
 
 export default defineNuxtConfig({
   app: {
-    baseURL: '/cges/'
+    baseURL: "/cges/",
   },
 
   router: {
-    base: '/cges/'
+    base: "/cges/",
   },
   devtools: { enabled: true },
-  modules: [
-    '@invictus.codes/nuxt-vuetify'
-  ],
+  modules: ["@invictus.codes/nuxt-vuetify"],
   vuetify: {
     /* vuetify options */
     vuetifyOptions: {
@@ -27,6 +25,6 @@ export default defineNuxtConfig({
       styles: true,
       autoImport: true,
       useVuetifyLabs: false,
-    }
-  }
-})
+    },
+  },
+});

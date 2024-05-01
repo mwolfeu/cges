@@ -6,12 +6,25 @@
       :items-to-show="2.5"
       :wrap-around="true"
     >
-      <Slide v-for="slide in 5" :key="slide">
+      <Slide v-for="row in carousel" :key="row">
         <v-img
           @click="console.log('hi')"
           class="carousel__item"
-          :src="`/cges/img/p${slide}.jpg`"
-        ></v-img>
+          :src="`/cges/img/${row.Picture}`"
+        >
+          <div
+            style="
+              height: 100%;
+              width: 100%;
+              display: flex;
+              flex-direction: column-reverse;
+            "
+          >
+            <div class="text-white" style="background-color: #0009">
+              {{ row.Text }}
+            </div>
+          </div></v-img
+        >
       </Slide>
       <template #addons>
         <Pagination />
@@ -26,7 +39,7 @@
         v-for="c of content"
         :key="c"
         class="w-100 d-flex pt-4"
-        :style="`background-color:${c.Color};`"
+        :style="`background-color:${c.BgColor}; color:${c.FgColor};`"
       >
         <div class="d-flex w-75 justify-center ma-auto">
           <div v-if="c.Type == 'title'" style="font-size: 40px" class="mb-8">
@@ -38,12 +51,6 @@
           <div v-if="c.Type == 'space'" class="mb-16" />
         </div>
       </div>
-      <!-- <iframe
-        id="content-frame"
-        src="/cges/content/landing/top.html"
-        style="width: 100%; background-color: red"
-        scrolling="no"
-      /> -->
       <!-- <div class="ma-auto d-flex flex-row">
         <v-row class="w-75 justify-center" v-if="false">
           <div class="w-25 ma-4">
@@ -114,6 +121,7 @@ export default {
 
     const wb = await this.parse_from_url("/cges/content.xlsx");
     this.content = XLSX.utils.sheet_to_json(wb.Sheets["Landing"]);
+    this.carousel = XLSX.utils.sheet_to_json(wb.Sheets["Carousel"]);
     // for (const t of ct) this.cardTypes[t.Type] = t.Color;
     // console.log(this.cardTypes);
 
@@ -128,6 +136,7 @@ export default {
       li: new LoremIpsum(),
       layout: "default",
       content: [],
+      carousel: [],
     };
   },
   methods: {

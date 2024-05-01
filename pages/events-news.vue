@@ -10,6 +10,7 @@
           v-for="(item, i) in ['All', ...types]"
           :key="i"
           :value="item"
+          :active="item == filter"
           rounded="xl"
           color="secondary"
           @click="() => filterBy(item)"
@@ -64,7 +65,7 @@ export default {
     for (const t of ct) this.cardTypes[t.Type] = t.Color;
     console.log(this.cardTypes);
 
-    this.all = XLSX.utils.sheet_to_json(wb.Sheets["News & Events Content"]);
+    this.all = XLSX.utils.sheet_to_json(wb.Sheets["News & Events Cards"]);
     this.content = this.all;
     this.types = [...new Set(this.content.map((d) => d.type.trim()))];
   },
@@ -74,10 +75,12 @@ export default {
       types: [],
       all: [],
       content: [],
+      filter: "All",
     };
   },
   methods: {
     filterBy(type) {
+      this.filter = type;
       if (type == "All") this.content = this.all;
       else this.content = this.all.filter((o) => o.type == type);
     },

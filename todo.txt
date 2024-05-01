@@ -8,14 +8,17 @@ x load csv
 export map files
 
 21.04.24
-About / Team
-Redo layout header
-Add text color to landing 
-only add instagram
-change carousel to be clickable / womens pictures
-create womens page
-cards: make all popup, add pdf functionality
-
+x About / Team
+  about: make ppl a grid
+  landing: curate their text more
+x Redo layout header
+x Add text color to landing 
+x only add instagram
+- change carousel to be clickable / womens pictures
+make possible img background
+create womens pages
+card component: make all popup, add pdf functionality
+  fellows, toolkit, events, women, resource hub
 
 
 

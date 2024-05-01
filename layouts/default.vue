@@ -57,11 +57,19 @@
     >
       <span>© 2024 Center on Gender and Extreme Sentencing</span>
       <span>
-        <v-icon>mdi-facebook</v-icon>
-        <v-icon>mdi-twitter</v-icon>
-        <v-icon>mdi-youtube</v-icon>
-        <v-icon>mdi-linkedin</v-icon>
-        <v-icon>mdi-email</v-icon>
+        <!-- <v-icon>mdi-facebook</v-icon> -->
+        <!-- <v-icon>mdi-twitter</v-icon> -->
+        <!-- <v-icon>mdi-youtube</v-icon> -->
+        <!-- <v-icon>mdi-linkedin</v-icon> -->
+        <v-icon
+          @click="
+            () => openTab('https://www.instagram.com/genderjusticenow_cges/')
+          "
+          >mdi-instagram</v-icon
+        >
+        <v-icon @click="() => openTab('mailto:clh288@cornell.edu')"
+          >mdi-email</v-icon
+        >
       </span>
     </div>
   </div>
@@ -90,6 +98,9 @@ export default {
       // console.log("blob", ab);
       const workbook = XLSX.read(ab);
       return workbook;
+    },
+    openTab(url) {
+      window.open(url, "_blank");
     },
   },
 };
