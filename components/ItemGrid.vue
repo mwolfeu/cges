@@ -1,11 +1,9 @@
 <template>
   <div class="d-flex ga-4 ma-4">
     <div class="w-25" v-if="types.length > 1" style="min-width: 200px">
-      <!-- <div v-for="t of types" :key="t">{{ t }}</div> -->
+      <!-- FILTER -->
       <div>Filter by:</div>
       <v-list>
-        <!-- <v-list-subheader></v-list-subheader> -->
-
         <v-list-item
           v-for="(item, i) in ['All', ...types]"
           :key="i"
@@ -23,6 +21,7 @@
         </v-list-item>
       </v-list>
     </div>
+    <!-- GRID -->
     <div>
       <div>
         <b>{{ content.length }}</b> Found:
@@ -48,29 +47,26 @@
             </template>
           </v-card-item>
           <v-card-text v-if="'abstract' in c">{{ c.abstract }}</v-card-text>
-          <!-- <v-card-actions v-if="'' in c"></v-card-actions> -->
         </v-card>
       </div>
     </div>
   </div>
 </template>
 <script>
-// import * as XLSX from "xlsx/xlsx.mjs";
-
 export default {
-  async mounted() {
-    // const wb = await this.parse_from_url("/cges/content.xlsx");
-    // // const sheet = wb.Sheets[wb.SheetNames[0]];
-    // const ct = XLSX.utils.sheet_to_json(wb.Sheets["CardTypes"]);
-    // for (const t of ct) this.cardTypes[t.Type] = t.Color;
-    // console.log(this.cardTypes);
-
-    // this.all = XLSX.utils.sheet_to_json(wb.Sheets["News & Events Cards"]);
+  props: {
+    items: {
+      type: Array,
+      required: true,
+      default: Array,
+    },
+  },
+  mounted() {
     for (const t of globalThis.CGEScontent.cardTypes)
       this.cardTypes[t.type] = t.color;
-    this.all = globalThis.CGEScontent.newsEvents;
+    //this.all = globalThis.CGEScontent.newsEvents;
 
-    this.content = this.all;
+    this.content = this.items;
     this.types = [...new Set(this.content.map((d) => d.type.trim()))];
   },
   data() {
@@ -87,14 +83,6 @@ export default {
       this.filter = type;
       if (type == "All") this.content = this.all;
       else this.content = this.all.filter((o) => o.type == type);
-    },
-    async parse_from_url(url) {
-      const res = await fetch(url);
-      if (!res.ok) throw new Error("fetch failed");
-      const ab = await res.arrayBuffer();
-      // console.log("blob", ab);
-      const workbook = XLSX.read(ab);
-      return workbook;
     },
   },
 };

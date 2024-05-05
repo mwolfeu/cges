@@ -8,9 +8,9 @@
     >
       <Slide v-for="row in carousel" :key="row">
         <v-img
-          @click="console.log('hi')"
           class="carousel__item"
-          :src="`/cges/img/${row.Picture}`"
+          :src="`/cges/img/${row.picture}`"
+          @click="openPDF(row.file)"
         >
           <div
             style="
@@ -21,7 +21,7 @@
             "
           >
             <div class="text-white" style="background-color: #0009">
-              {{ row.Text }}
+              {{ row.title }}
             </div>
           </div></v-img
         >
@@ -140,6 +140,9 @@ export default {
     };
   },
   methods: {
+    openPDF(name) {
+      window.open(`/cges/pdf/${name}`, "_blank");
+    },
     unquote(str) {
       if (
         (str.startsWith('"') && str.endsWith('"')) ||

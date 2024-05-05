@@ -9,18 +9,25 @@ export map files
 
 21.04.24
 x About / Team
-  about: make ppl a grid
-  landing: curate their text more
 x Redo layout header
 x Add text color to landing 
 x only add instagram
-- change carousel to be clickable / womens pictures
+x  fellows, toolkit, events, women, resource hub
+  about: make ppl a grid
+  landing: curate their text more
 make possible img background
-create womens pages
-card component: make all popup, add pdf functionality
-  fellows, toolkit, events, women, resource hub
+card component:add pdf / modal functionality
+convert events to card component
+fix card component filter
+find place to live for xls loader (not default.vue)
+try epub export instead of pdf? can include videos?
+fix second menu list (it should stick around if on a subpage)
+Find location for item grid pictures
 
-
+05.05.24
+x Curated blog content (currently on gdrive)
+x made pdfs
+x linked to carousel
 
 
 Special Dirs: layouts, pages, components, layouts/default.vue
@@ -38,7 +45,17 @@ How to export map files?
 # REFRENCE #
 ############
 
+Headers: Raleway
+Content: Avenir
+
 Wes Anderson colors
 https://github.com/karthik/wesanderson/blob/master/R/colors.R
 
 Avatar Creator https://pmav.eu/stuff/pictar/
+
+
+Palette:
+https://pixlr.com/image-generator/ 
+
+Palette => hex codes
+https://coolors.co/image-picker

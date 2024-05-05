@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="bg-primary logo">
-      <div class="pt-4 ml-6 mr-6">
+      <div class="pt-4 ml-6 mr-6 pb-4">
         <div class="d-flex flex-row justify-start align-center">
           <NuxtLink to="/">
             <div class="icon mr-4"></div>
@@ -14,37 +14,29 @@
           class="border-opacity-50 mt-4 mb-4"
           color="white"
         ></v-divider>
-        <div class="pb-4">
+        <div>
           <span v-for="(c, i) of categories" :key="c">
             <v-btn
-              :to="`${c.link}`"
+              :to="c.link.startsWith('/') ? `${c.link}` : undefined"
               color="textl"
               variant="text"
               :text="`${c.category}`"
               prepend-icon="mdi-square"
+              @click="toggleShow(c.link)"
             />
-            <!-- <span v-if="i != categories.length-1">&#x25A0;</span> -->
           </span>
-
-          <!-- <v-btn to="/women" color="textl" variant="text">
-            Women On Death Row
-          </v-btn>
-          &#x25A0;
-          <v-btn to="/projects" color="textl" variant="text">
-            Projects
-          </v-btn>
-          &#x25A0;
-          <v-btn to="/resources" color="textl" variant="text">
-            Resource Hub
-          </v-btn>
-          &#x25A0;
-          <v-btn to="/events-news" color="textl" variant="text">
-            Events & News
-          </v-btn>
-          &#x25A0;
-          <v-btn to="/about" color="textl" variant="text">
-            About
-          </v-btn> -->
+        </div>
+        <div v-if="show.projects">
+          <span v-for="(c, i) of projects" :key="c">
+            <v-btn
+              :to="c.link.startsWith('/') ? `${c.link}` : undefined"
+              color="textl"
+              variant="text"
+              :text="`${c.category}`"
+              prepend-icon="mdi-square"
+              @click="toggleShow(c.link)"
+            />
+          </span>
         </div>
       </div>
     </div>
@@ -53,7 +45,7 @@
   <div class="bg-primary">
     <!-- <div class="footer-top"></div> -->
     <div
-      class="text-textl ml-4 mr-4 pb-4 d-flex flex-nowrap justify-space-between"
+      class="text-textl ml-4 mr-4 pb-4 pt-4 d-flex flex-nowrap justify-space-between"
     >
       <span>© 2024 Center on Gender and Extreme Sentencing</span>
       <span>
@@ -83,11 +75,37 @@ export default {
   async mounted() {
     const wb = await this.parse_from_url("/cges/content.xlsx");
     const sheet = wb.Sheets[wb.SheetNames[0]];
+
     this.categories = XLSX.utils.sheet_to_json(wb.Sheets["Main Categories"]);
+    this.projects = XLSX.utils.sheet_to_json(wb.Sheets["Projects Categories"]);
+
+    globalThis.CGEScontent = {};
+    globalThis.CGEScontent.projectsCategories = XLSX.utils.sheet_to_json(
+      wb.Sheets["Projects Categories"]
+    );
+    globalThis.CGEScontent.cardTypes = XLSX.utils.sheet_to_json(
+      wb.Sheets["CardTypes"]
+    );
+    globalThis.CGEScontent.fellows = XLSX.utils.sheet_to_json(
+      wb.Sheets["Fellows Cards"]
+    );
+    globalThis.CGEScontent.toolkit = XLSX.utils.sheet_to_json(
+      wb.Sheets["Toolkit Cards"]
+    );
+    globalThis.CGEScontent.newsEvents = XLSX.utils.sheet_to_json(
+      wb.Sheets["News & Events Cards"]
+    );
+    globalThis.CGEScontent.resourceHub = XLSX.utils.sheet_to_json(
+      wb.Sheets["Resource Hub Cards"]
+    );
+    globalThis.CGEScontent.womenOnDeathRow = XLSX.utils.sheet_to_json(
+      wb.Sheets["Women on Death Row Cards"]
+    );
   },
   data() {
     return {
       categories: [],
+      show: { projects: false },
     };
   },
   methods: {
@@ -98,6 +116,11 @@ export default {
       // console.log("blob", ab);
       const workbook = XLSX.read(ab);
       return workbook;
+    },
+    toggleShow(name) {
+      if (name in this.show)
+        this.show[name] = !this.show[name]; // turn on new menu level
+      else for (const k of Object.keys(this.show)) this.show[k] = false; // turn all off
     },
     openTab(url) {
       window.open(url, "_blank");
