@@ -14,7 +14,7 @@
           class="border-opacity-50 mt-4 mb-4"
           color="white"
         ></v-divider>
-        <div>
+        <div v-if="!show.projects">
           <span v-for="(c, i) of categories" :key="c">
             <v-btn
               :to="c.link.startsWith('/') ? `${c.link}` : undefined"
@@ -27,6 +27,14 @@
           </span>
         </div>
         <div v-if="show.projects">
+          <span>
+            <v-btn
+              color="textl"
+              variant="text"
+              text="<"
+              @click="toggleShow('projects')"
+            />
+          </span>
           <span v-for="(c, i) of projects" :key="c">
             <v-btn
               :to="c.link.startsWith('/') ? `${c.link}` : undefined"
@@ -68,59 +76,30 @@
 </template>
 
 <script>
-import * as XLSX from "xlsx/xlsx.mjs";
+import siteData from "~/public/cges/localization.json";
 
 export default {
   components: {},
-  async mounted() {
-    const wb = await this.parse_from_url("/cges/content.xlsx");
-    const sheet = wb.Sheets[wb.SheetNames[0]];
-
-    this.categories = XLSX.utils.sheet_to_json(wb.Sheets["Main Categories"]);
-    this.projects = XLSX.utils.sheet_to_json(wb.Sheets["Projects Categories"]);
-
-    globalThis.CGEScontent = {};
-    globalThis.CGEScontent.projectsCategories = XLSX.utils.sheet_to_json(
-      wb.Sheets["Projects Categories"]
-    );
-    globalThis.CGEScontent.cardTypes = XLSX.utils.sheet_to_json(
-      wb.Sheets["CardTypes"]
-    );
-    globalThis.CGEScontent.fellows = XLSX.utils.sheet_to_json(
-      wb.Sheets["Fellows Cards"]
-    );
-    globalThis.CGEScontent.toolkit = XLSX.utils.sheet_to_json(
-      wb.Sheets["Toolkit Cards"]
-    );
-    globalThis.CGEScontent.newsEvents = XLSX.utils.sheet_to_json(
-      wb.Sheets["News & Events Cards"]
-    );
-    globalThis.CGEScontent.resourceHub = XLSX.utils.sheet_to_json(
-      wb.Sheets["Resource Hub Cards"]
-    );
-    globalThis.CGEScontent.womenOnDeathRow = XLSX.utils.sheet_to_json(
-      wb.Sheets["Women on Death Row Cards"]
-    );
-  },
+  async mounted() {},
   data() {
     return {
-      categories: [],
+      categories: siteData["Main Categories"],
+      projects: siteData["Projects Categories"],
       show: { projects: false },
     };
   },
   methods: {
-    async parse_from_url(url) {
-      const res = await fetch(url);
-      if (!res.ok) throw new Error("fetch failed");
-      const ab = await res.arrayBuffer();
-      // console.log("blob", ab);
-      const workbook = XLSX.read(ab);
-      return workbook;
-    },
+    // async parse_from_url(url) {
+    //   const res = await fetch(url);
+    //   if (!res.ok) throw new Error("fetch failed");
+    //   const ab = await res.arrayBuffer();
+    //   // console.log("blob", ab);
+    //   const workbook = XLSX.read(ab);
+    //   return workbook;
+    // },
     toggleShow(name) {
-      if (name in this.show)
-        this.show[name] = !this.show[name]; // turn on new menu level
-      else for (const k of Object.keys(this.show)) this.show[k] = false; // turn all off
+      if (name in this.show) this.show[name] = !this.show[name]; // turn on new menu level
+      // else for (const k of Object.keys(this.show)) this.show[k] = false; // turn all off
     },
     openTab(url) {
       window.open(url, "_blank");

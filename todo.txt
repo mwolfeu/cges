@@ -1,35 +1,41 @@
-x vuetify
-x page
-x component
-x layout
-x compose
-flat file
-x load csv
-export map files
+TODO:
+card component:add pdf / modal functionality
+  upload pdfs
+  about: make ppl a grid
+bg-image stretch!
+###
+check every usage of siteData.   not all of them could be overridden w fetch
+- integrate json cvt page, load new json over existing, write a question to stack "how do i not bundle imported json"
+try epub export instead of pdf? can include videos?
+NOTE: Currently loading json in: default(menu items), index (carousel), itemgrid, list vis
 
 21.04.24
 x About / Team
 x Redo layout header
 x Add text color to landing 
-x only add instagram
-x  fellows, toolkit, events, women, resource hub
-  about: make ppl a grid
-  landing: curate their text more
-make possible img background
-card component:add pdf / modal functionality
-convert events to card component
-fix card component filter
-find place to live for xls loader (not default.vue)
-try epub export instead of pdf? can include videos?
-fix second menu list (it should stick around if on a subpage)
-Find location for item grid pictures
 
 05.05.24
 x Curated blog content (currently on gdrive)
 x made pdfs
 x linked to carousel
+x only add instagram
+x  fellows, toolkit, events, women, resource hub
+
+09.05.24
+X convert events to card component
+x fix card component filter
+X fix second menu list (it should stick around if on a subpage)
+X landing: curate their text more
+
+12.05.24
+X Find location for item grid pictures - decom the one used by old news events
+X componentize list display
+X img & parallax backgrounds
 
 
+Thumbnail Size: ???
+Carousel Size: ???
+Using gdocs => pdf export
 Special Dirs: layouts, pages, components, layouts/default.vue
 Assumes it is the root of the domain.
 equiv of "to" 
@@ -45,6 +51,12 @@ How to export map files?
 # REFRENCE #
 ############
 
+document each component
+
+parallax - height controlled by aspect ratio
+
+changed project root to /cges to accomodate github in nuxt.config.ts
+
 Headers: Raleway
 Content: Avenir
 
@@ -59,3 +71,9 @@ https://pixlr.com/image-generator/
 
 Palette => hex codes
 https://coolors.co/image-picker
+
+
+alice project mwolf.eu / !11Ornellcay
+ 
+after generating static site copy .output/public to /dist for github
+try useFetch.  if rv == null use bundled json?

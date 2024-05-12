@@ -31,7 +31,7 @@
       </template>
     </Carousel>
 
-    <div
+    <!-- <div
       class="w-100 mt-6 pb-6"
       sstyle="background-image: url('/cges/bg.png'); background-repeat: repeat"
     >
@@ -50,8 +50,8 @@
           </div>
           <div v-if="c.Type == 'space'" class="mb-16" />
         </div>
-      </div>
-      <!-- <div class="ma-auto d-flex flex-row">
+      </div> -->
+    <!-- <div class="ma-auto d-flex flex-row">
         <v-row class="w-75 justify-center" v-if="false">
           <div class="w-25 ma-4">
             <div class="mt-6 w-100 text-h6 font-weight-bold">Projects</div>
@@ -87,22 +87,24 @@
           </div>
         </v-row>
       </div> -->
-    </div>
-    <!-- hello
-    <test /> -->
+    <il contentKey="Landing" />
+    <!-- </div> -->
   </div>
 </template>
 <script>
 import { Carousel, Pagination, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
-import { LoremIpsum } from "lorem-ipsum";
-import * as XLSX from "xlsx/xlsx.mjs";
+import siteData from "~/public/cges/localization.json";
+import il from "~/components/ItemList.vue";
+// import { LoremIpsum } from "lorem-ipsum";
+// import * as XLSX from "xlsx/xlsx.mjs";
 
 export default {
   components: {
     Carousel,
     Slide,
     Pagination,
+    il,
   },
   async mounted() {
     // const wb = await this.parse_from_url("/cges/content.xlsx");
@@ -119,21 +121,13 @@ export default {
     // }
     // document.getElementById("content-frame").onload = resizeIframe;
 
-    const wb = await this.parse_from_url("/cges/content.xlsx");
-    this.content = XLSX.utils.sheet_to_json(wb.Sheets["Landing"]);
-    this.carousel = XLSX.utils.sheet_to_json(wb.Sheets["Carousel"]);
-    // for (const t of ct) this.cardTypes[t.Type] = t.Color;
-    // console.log(this.cardTypes);
-
-    // this.all = XLSX.utils.sheet_to_json(wb.Sheets["News & Events Content"]);
-    // this.content = this.all;
-    // this.types = [...new Set(this.content.map((d) => d.type.trim()))];
+    // const wb = await this.parse_from_url("/cges/content.xlsx");
+    this.content = siteData["Landing"];
+    this.carousel = siteData["Carousel"];
   },
   data() {
     return {
-      // data: { sheet1: [] },
       categories: [],
-      li: new LoremIpsum(),
       layout: "default",
       content: [],
       carousel: [],
@@ -143,26 +137,14 @@ export default {
     openPDF(name) {
       window.open(`/cges/pdf/${name}`, "_blank");
     },
-    unquote(str) {
-      if (
-        (str.startsWith('"') && str.endsWith('"')) ||
-        (str.startsWith("'") && str.endsWith("'"))
-      ) {
-        // Check if the string starts and ends with the same quote character
-        return str.slice(1, -1); // Return the string without the first and last character
-      } else {
-        // If the string doesn't start and end with the same quote character, return the original string
-        return str;
-      }
-    },
-    async parse_from_url(url) {
-      const res = await fetch(url);
-      if (!res.ok) throw new Error("fetch failed");
-      const ab = await res.arrayBuffer();
-      console.log("blob", ab);
-      const workbook = XLSX.read(ab);
-      return workbook;
-    },
+    // async parse_from_url(url) {
+    //   const res = await fetch(url);
+    //   if (!res.ok) throw new Error("fetch failed");
+    //   const ab = await res.arrayBuffer();
+    //   console.log("blob", ab);
+    //   const workbook = XLSX.read(ab);
+    //   return workbook;
+    // },
   },
 };
 </script>

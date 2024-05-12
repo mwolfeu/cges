@@ -42,7 +42,7 @@
             }}</v-card-subtitle>
             <template v-slot:prepend v-if="'abstract_image' in c">
               <v-avatar size="64" rounded="0">
-                <v-img :src="`/cges/content/img/${c.abstract_image}`"></v-img>
+                <v-img :src="`/cges/img/${c.abstract_image}`"></v-img>
               </v-avatar>
             </template>
           </v-card-item>
@@ -53,20 +53,28 @@
   </div>
 </template>
 <script>
+import siteData from "~/public/cges/localization.json";
+
 export default {
   props: {
-    items: {
-      type: Array,
+    // items: {
+    //   type: Array,
+    //   required: true,
+    //   default: Array,
+    // },
+    contentKey: {
+      type: String,
       required: true,
-      default: Array,
+      default: "",
     },
   },
-  mounted() {
-    for (const t of globalThis.CGEScontent.cardTypes)
-      this.cardTypes[t.type] = t.color;
-    //this.all = globalThis.CGEScontent.newsEvents;
+  async mounted() {
+    //globalThis.CGEScontent.cardTypes
+    console.log("mw", await $fetch("/cges/localization.json"));
+    for (const t of siteData["Card Types"]) this.cardTypes[t.type] = t.color;
 
-    this.content = this.items;
+    this.all = siteData[this.contentKey];
+    this.content = this.all;
     this.types = [...new Set(this.content.map((d) => d.type.trim()))];
   },
   data() {
@@ -80,6 +88,7 @@ export default {
   },
   methods: {
     filterBy(type) {
+      console.log("here");
       this.filter = type;
       if (type == "All") this.content = this.all;
       else this.content = this.all.filter((o) => o.type == type);

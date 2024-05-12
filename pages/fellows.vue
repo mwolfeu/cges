@@ -1,5 +1,5 @@
 <template>
-  <ig :items="content" />
+  <ig contentKey="Fellows Cards" />
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default {
   props: {},
   mounted() {},
   data() {
-    return { content: globalThis.CGEScontent.fellows };
+    return {};
   },
   methods: {},
 };

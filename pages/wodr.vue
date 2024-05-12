@@ -1,5 +1,5 @@
 <template>
-  <ig :items="content" />
+  <ig contentKey="Women on Death Row Cards" />
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default {
   props: {},
   mounted() {},
   data() {
-    return { content: globalThis.CGEScontent.womenOnDeathRow };
+    return {};
   },
   methods: {},
 };
