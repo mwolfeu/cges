@@ -14,7 +14,7 @@
       </div>
       <div
         v-if="c.Type == 'bg-image'"
-        :style="`background-image: url(/cges/img/${c.Background})`"
+        :style="`background-image: url(/cges/img/${c.Background}); background-size: cover; background-position: center; background-repeat: no-repeat;`"
       >
         <ItemList :contentKey="c.Section" childWidth="w-75 rounded" />
       </div>

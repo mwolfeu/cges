@@ -2,7 +2,6 @@ TODO:
 card component:add pdf / modal functionality
   upload pdfs
   about: make ppl a grid
-bg-image stretch!
 ###
 check every usage of siteData.   not all of them could be overridden w fetch
 - integrate json cvt page, load new json over existing, write a question to stack "how do i not bundle imported json"
@@ -31,6 +30,7 @@ X landing: curate their text more
 X Find location for item grid pictures - decom the one used by old news events
 X componentize list display
 X img & parallax backgrounds
+X bg-image stretch
 
 
 Thumbnail Size: ???
