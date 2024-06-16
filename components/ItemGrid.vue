@@ -46,12 +46,26 @@
               </v-avatar>
             </template>
           </v-card-item>
-          <v-card-text v-if="'abstract' in c">{{ c.abstract }}</v-card-text>
+          <v-card-text>
+            <div v-if="'abstract' in c">{{ c.abstract }}</div>
+            <div v-if="'attachments' in c">
+              <div v-for="(a, i) in parseURLs(c.attachments)">
+                <div
+                  class="pt-3"
+                  @click="openURL(a)"
+                  style="font-weight: 700; cursor: pointer"
+                >
+                  Attachment {{ i + 1 }}
+                </div>
+              </div>
+            </div>
+          </v-card-text>
         </v-card>
       </div>
     </div>
   </div>
 </template>
+
 <script>
 import siteData from "~/public/cges/localization.json";
 
@@ -87,6 +101,12 @@ export default {
     };
   },
   methods: {
+    parseURLs(s) {
+      return s.split(" ").filter((u) => u != "");
+    },
+    openURL(url) {
+      window.open(url, "_blank");
+    },
     filterBy(type) {
       console.log("here");
       this.filter = type;

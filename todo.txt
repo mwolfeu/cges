@@ -1,17 +1,38 @@
 TODO:
-card component:add pdf / modal functionality
-  upload pdfs
+Make fetch override
+integrate json cvt page, load new json over existing, write a question to stack "how do i not bundle imported json"
+
+WHEN C PROVIDES COPY/PIX/HELP
+Need other person copy
   about: make ppl a grid
-###
+Get Box share urls w interns
+Add lines section before all grid instances / add PROJECTS subitle to top of page?
+Add all provided copy/pictures
+Add Publications section after News & Events
+
+PROJECT END
 check every usage of siteData.   not all of them could be overridden w fetch
-- integrate json cvt page, load new json over existing, write a question to stack "how do i not bundle imported json"
+Write maintenance documentation for Scott
+
+NOTES
+Is BODY, is_dialog on grids deprecated?
+  card component:add modal functionality ?
+Currently loading json in: default(menu items), index (carousel), itemgrid, list vis
+
+IF C DISLIKES PDF (CAROUSEL)
 try epub export instead of pdf? can include videos?
-NOTE: Currently loading json in: default(menu items), index (carousel), itemgrid, list vis
+
+16.06.24
+X Submit invoice
+X Create PDF test example for Resource Hub
+X Change top bar color to teal
+X card component:add box url functionality
 
 21.04.24
 x About / Team
 x Redo layout header
 x Add text color to landing 
+X Project => a dropdown selector
 
 05.05.24
 x Curated blog content (currently on gdrive)

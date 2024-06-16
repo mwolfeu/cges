@@ -21,7 +21,7 @@ export default defineNuxtPlugin((nuxtApp) => {
             surface: "#FAFAFA",
             textl: "#FFFFFF",
             textg: "#AEB0B0",
-            primary: "#E6A0C4",
+            primary: "#7CB39D",
             // 'primary-darken-1': '#3700B3',
             secondary: "#A0007D",
             // 'secondary-darken-1': '#018786',

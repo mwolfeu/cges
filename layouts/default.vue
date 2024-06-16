@@ -23,10 +23,25 @@
               :text="`${c.category}`"
               prepend-icon="mdi-square"
               @click="toggleShow(c.link)"
+              :id="`${c.link}-activator`"
             />
+
+            <v-menu v-if="c.link == 'projects'" activator="#projects-activator">
+              <v-list>
+                <v-list-item
+                  v-for="(item, index) in projects"
+                  :key="index"
+                  :value="index"
+                  :to="item.link.startsWith('/') ? `${item.link}` : undefined"
+                >
+                  <v-list-item-title>{{ item.category }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
           </span>
         </div>
-        <div v-if="show.projects">
+        <!-- C requested projects be a dropdown 16.06.24 -->
+        <!-- <div v-if="show.projects">
           <span>
             <v-btn
               color="textl"
@@ -45,7 +60,7 @@
               @click="toggleShow(c.link)"
             />
           </span>
-        </div>
+        </div> -->
       </div>
     </div>
     <slot site="dorkus"></slot>
@@ -98,8 +113,8 @@ export default {
     //   return workbook;
     // },
     toggleShow(name) {
-      if (name in this.show) this.show[name] = !this.show[name]; // turn on new menu level
-      // else for (const k of Object.keys(this.show)) this.show[k] = false; // turn all off
+      // C requested Projects be a dropdown.
+      // if (name in this.show) this.show[name] = !this.show[name]; // turn on new menu level
     },
     openTab(url) {
       window.open(url, "_blank");

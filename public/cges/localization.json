@@ -411,7 +411,7 @@
       "abstract_image": "test.png",
       "abstract": "Occaecat eu ea id deserunt commodo ullamco quis anim exercitation ipsum dolore dolore. Incididunt ipsum laboris pariatur eu qui voluptate non ea Lorem eu.",
       "body": "resource copy",
-      "attachments": "PDFs",
+      "attachments": "https://cornell.box.com/s/63andrgl6dqxqebmaqq6z6kx1jq7j6c8 https://cornell.box.com/s/rqoakzkph3yxjmcucp3kvvpczuorpl2k",
       "type": "Website"
     },
     {
@@ -420,7 +420,7 @@
       "abstract_image": "test.png",
       "abstract": "Occaecat eu ea id deserunt commodo ullamco quis anim exercitation ipsum dolore dolore. Incididunt ipsum laboris pariatur eu qui voluptate non ea Lorem eu.",
       "body": "resource copy",
-      "attachments": "PDFs",
+      "attachments": "",
       "type": "Organization"
     },
     {
@@ -429,7 +429,7 @@
       "abstract_image": "test.png",
       "abstract": "Occaecat eu ea id deserunt commodo ullamco quis anim exercitation ipsum dolore dolore. Incididunt ipsum laboris pariatur eu qui voluptate non ea Lorem eu.",
       "body": "resource copy",
-      "attachments": "PDFs",
+      "attachments": "",
       "type": "Report"
     }
   ],
