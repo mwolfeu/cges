@@ -1,15 +1,17 @@
 TODO:
 Make fetch override  - add json file location to readme
-README - finish card component description
-change bg for wombo one.
++ README - finish card component description
++ change bg for wombo one.
 integrate json cvt page, load new json over existing, write a question to stack "how do i not bundle imported json"
 
-WHEN C PROVIDES COPY/PIX/HELP
-Need other person copy
-  about: make ppl a grid
-- Get Box share urls w interns
-Add lines component before all grid component / add PROJECTS subitle to top of page?
-Add all provided copy/pictures
+
++ large spaces before each title in about
++ ending each list w a space (before grid)  remove mb-8
++ mod / add pix to about
+
+X Add lines component before all grid component / add PROJECTS subitle to top of page?
++ about: make ppl a grid
++ x Add all provided copy/pictures
 Add Publications section after News & Events
 Add mailchimp to page
 

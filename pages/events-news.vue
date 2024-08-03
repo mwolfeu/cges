@@ -1,14 +1,17 @@
 <template>
+  <il contentKey="News & Events List" />
   <ig contentKey="News & Events Cards" />
 </template>
 
 <script>
 import ig from "../components/ItemGrid.vue";
+import il from "../components/ItemList.vue";
 // import sitejson from "~/public/cges/content.json";
 
 export default {
   components: {
     ig,
+    il,
   },
   props: {},
   async mounted() {
