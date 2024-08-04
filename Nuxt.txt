@@ -5,5 +5,5 @@ DEPLOY:
 npx nuxi generate
 cp -ar .output/public/* docs/
 cd docs/
-cp ar cges/* .
+cp a-ar cges/* .
 git add docs

@@ -37,6 +37,9 @@ X Add lines component before all grid component / add PROJECTS subitle to top of
 X Add all provided copy/pictures
 Made il normal a v-html to use links
 
+26.-7.24
+Added dropdown for projects
+
 16.06.24
 X Submit invoice
 X Create PDF test example for Resource Hub
