@@ -141,7 +141,7 @@
     {
       "Section": "Landing Image Example",
       "Type": "bg-image",
-      "Background": "landingimg.jpg",
+      "Background": "backgrounds/003.jpg",
       "Notes": "Content contained in landing image example sheet "
     },
     {
@@ -253,6 +253,26 @@
       "Background": "transparent"
     }
   ],
+  "Women on Death Row Categories": [
+    {
+      "category": "Conditions of Detention"
+    },
+    {
+      "category": "Transwomen"
+    },
+    {
+      "category": "Intersectional Bias"
+    },
+    {
+      "category": "Gender-Based Violence"
+    },
+    {
+      "category": "Mental Health"
+    },
+    {
+      "category": "Discrimination in the Legal System"
+    }
+  ],
   "About": [
     {
       "Type": "space",
@@ -317,7 +337,7 @@
       "Background": "#C6CDF7"
     },
     {
-      "Section": "ch.jpg",
+      "Section": "harris.jpg",
       "Type": "picture",
       "Background": "#C6CDF7"
     },
@@ -336,7 +356,7 @@
       "Background": "#C6CDF7"
     },
     {
-      "Section": "ch.jpg",
+      "Section": "bahar.jpg",
       "Type": "picture",
       "Background": "#C6CDF7"
     },
@@ -355,7 +375,7 @@
       "Background": "#C6CDF7"
     },
     {
-      "Section": "ch.jpg",
+      "Section": "halstead.jpg",
       "Type": "picture",
       "Background": "#C6CDF7"
     },
@@ -374,29 +394,9 @@
       "Background": "#C6CDF7"
     },
     {
-      "Section": "ch.jpg",
+      "Section": "babcock.jpg",
       "Type": "picture",
       "Background": "#C6CDF7"
-    }
-  ],
-  "Women on Death Row Categories": [
-    {
-      "category": "Conditions of Detention"
-    },
-    {
-      "category": "Transwomen"
-    },
-    {
-      "category": "Intersectional Bias"
-    },
-    {
-      "category": "Gender-Based Violence"
-    },
-    {
-      "category": "Mental Health"
-    },
-    {
-      "category": "Discrimination in the Legal System"
     }
   ],
   "Fellows List": [
@@ -417,7 +417,7 @@
     },
     {
       "Type": "space",
-      "Background": "#C6CDF7"
+      "Background": "white"
     }
   ],
   "Fellows Cards": [
@@ -434,28 +434,22 @@
   "Toolkit List": [
     {
       "Type": "space",
-      "Background": "#C6CDF7",
-      "Type_1": "space",
-      "Background_1": "#C6CDF7"
+      "Background": "#C6CDF7"
     },
     {
-      "Section": "Test Content",
+      "Section": "Toolkit:",
       "Type": "title",
       "Foreground": "white",
-      "Background": "#C6CDF7",
-      "Section_1": "Toolkit:",
-      "Type_1": "title",
-      "Foreground_1": "white",
-      "Background_1": "#C6CDF7"
+      "Background": "#C6CDF7"
     },
     {
-      "Section_1": "Here you will find sample legal briefs, clemency petitions, resources on narrative construction, litigation manuals, and factsheets relating to the defense of women and gender minorities on the following key issues: gender-based violence, sex trafficking, coercive control, trauma, mental health, intersectional discrimination, prison conditions, and working with the media. The materials in our toolkit are free and easily accessible, with the vision that equipping diverse defense communities with these resources will advance advocacy on behalf of criminalized women, transgender people, and gender minorities.",
-      "Type_1": "normal",
-      "Background_1": "#C6CDF7"
+      "Section": "Here you will find sample legal briefs, clemency petitions, resources on narrative construction, litigation manuals, and factsheets relating to the defense of women and gender minorities on the following key issues: gender-based violence, sex trafficking, coercive control, trauma, mental health, intersectional discrimination, prison conditions, and working with the media. The materials in our toolkit are free and easily accessible, with the vision that equipping diverse defense communities with these resources will advance advocacy on behalf of criminalized women, transgender people, and gender minorities.",
+      "Type": "normal",
+      "Background": "#C6CDF7"
     },
     {
-      "Type_1": "space",
-      "Background_1": "#C6CDF7"
+      "Type": "space",
+      "Background": "white"
     }
   ],
   "Toolkit Cards": [
@@ -549,7 +543,7 @@
     },
     {
       "Type": "space",
-      "Background": "#C6CDF7"
+      "Background": "white"
     }
   ],
   "Resource Hub Cards": [
@@ -599,7 +593,7 @@
     },
     {
       "Type": "space",
-      "Background": "#C6CDF7"
+      "Background": "white"
     }
   ],
   "Women on Death Row Cards": [

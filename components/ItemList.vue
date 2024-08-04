@@ -13,6 +13,17 @@
         {{ unquote(c.Section) }}
       </div>
       <div
+        v-html="
+          <a
+            href=&quot;https://google.com&quot;
+            target=&quot;_blank&quot;
+            rel=&quot;noopener&quot;
+          >
+            get in touch
+          </a>
+        "
+      ></div>
+      <div
         v-if="c.Type == 'bg-image'"
         :style="`background-image: url(/cges/img/${c.Background}); background-size: cover; background-position: center; background-repeat: no-repeat;`"
       >
@@ -48,7 +59,7 @@ export default {
     },
     childWidth: {
       type: String,
-      required: true,
+      required: false,
       default: "w-100",
     },
   },
