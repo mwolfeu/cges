@@ -9,20 +9,15 @@
       <div v-if="c.Type == 'title'" style="font-size: 40px" class="mb-8 w-75">
         <center>{{ unquote(c.Section) }}</center>
       </div>
-      <div v-if="c.Type == 'normal'" style="font-size: 20px" class="mb-4 w-75">
-        {{ unquote(c.Section) }}
-      </div>
       <div
-        v-html="
-          <a
-            href=&quot;https://google.com&quot;
-            target=&quot;_blank&quot;
-            rel=&quot;noopener&quot;
-          >
-            get in touch
-          </a>
-        "
-      ></div>
+        v-if="c.Type == 'normal'"
+        style="font-size: 20px"
+        class="mb-4 w-75"
+        v-html="unquote(c.Section)"
+      />
+      <!-- {{ unquote(c.Section) }}
+      </div> -->
+
       <div
         v-if="c.Type == 'bg-image'"
         :style="`background-image: url(/cges/img/${c.Background}); background-size: cover; background-position: center; background-repeat: no-repeat;`"
@@ -81,3 +76,29 @@ export default {
   },
 };
 </script>
+
+<style>
+/* unvisited link */
+a:link {
+  color: #000a;
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: #000a;
+  text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+  color: #0006;
+  text-decoration: none;
+}
+
+/* selected link */
+a:active {
+  color: #000f;
+  text-decoration: none;
+}
+</style>

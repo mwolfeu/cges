@@ -1,7 +1,7 @@
-live changes:
+WATCH:
 npm run dev
 
-deploy:
+DEPLOY:
 npx nuxi generate
 cp -ar .output/public/* docs/
 cd docs/
