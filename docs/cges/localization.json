@@ -318,8 +318,16 @@
       "Background": "white"
     },
     {
+      "Type": "space",
+      "Background": "#C6CDF7"
+    },
+    {
       "Section": "We are a multidisciplinary group of lawyers, human rights defenders, scholars, experts, and researchers dedicated to exposing the intersectional bias faced by women, trans people, and gender minorities facing extreme sentencing. We engage in advocacy and research, and share practical resources with advocates and people who have directly experienced incarceration, with the goal of effecting systemic change within the criminal legal system. By focusing on the most vulnerable members of the incarcerated population, we believe our approach will gain victories that will be felt throughout the prison industrial complex, to the benefit of all people subjected to the harms of mass incarceration.",
       "Type": "normal",
+      "Background": "#C6CDF7"
+    },
+    {
+      "Type": "space",
       "Background": "#C6CDF7"
     },
     {
@@ -330,6 +338,10 @@
       "Section": "Kwaneta Harris",
       "Type": "title",
       "Background": "white"
+    },
+    {
+      "Type": "space",
+      "Background": "#C6CDF7"
     },
     {
       "Section": "Kwaneta Harris is a former nurse, business owner and expat, now incarcerated journalist and a Haymarket Writing Freedom Fellow. She brings experiences from each profession to illuminate how the experience of being incarcerated in the largest state prison in Texas is vastly different for women in ways that directly map onto a culture rooted in misogyny. Her powerful and shocking stories expose how the intersection of gender, race and place contribute to state-sanctioned, gender-based violence. As an advisory board member of CGES, Kwaneta’s input is an invaluable asset towards ensuring our programming is responsive to the needs of incarcerated women. You can read Kwaneta’s writing <a href='https://www.kwanetaharris.com/' target='_blank' rel='noopener' > here </a>.",
@@ -343,12 +355,20 @@
     },
     {
       "Type": "space",
+      "Background": "#C6CDF7"
+    },
+    {
+      "Type": "space",
       "Background": "white"
     },
     {
       "Section": "Bahar Mirhosseni",
       "Type": "title",
       "Background": "white"
+    },
+    {
+      "Type": "space",
+      "Background": "#C6CDF7"
     },
     {
       "Section": "Bahar Mirhosseni is a human rights advocate, a criminal defense lawyer, and the Director of Legal Advocacy at the Cornell Center on the Death Penalty Worldwide. She also co-teaches the Pretrial Justice Clinic at UCLA School of Law. She has collaborated with a range of human rights organizations including the Georgia Capital Defender Office, the Southern Africa Litigation Centre, and Addameer Prisoner Support and Human Rights Association. She serves on both the Racial Justice Committee and the Education Committee of the National Association for Public Defense. She has spent over sixteen years in indigent defense, as a public defender in New York and California, and in partnership with public defenders overseas, on access to justice, human rights, and high quality lawyering.",
@@ -362,12 +382,20 @@
     },
     {
       "Type": "space",
+      "Background": "#C6CDF7"
+    },
+    {
+      "Type": "space",
       "Background": "white"
     },
     {
       "Section": "Chelsea Halstead",
       "Type": "title",
       "Background": "white"
+    },
+    {
+      "Type": "space",
+      "Background": "#C6CDF7"
     },
     {
       "Section": "Chelsea Halstead is the Director of the Cornell Center on the Death Penalty Worldwide, where she oversees the center’s operations, communications, strategy, advocacy, and fundraising efforts. Prior to her appointment at CCDPW, Chelsea co-founded the Colibrí Center for Human Rights in Tucson, Arizona. Colibrí combines forensic science with human rights advocacy to identify the remains of people who have died in their attempt to cross the U.S.-Mexico border while calling attention to failed immigration policy. Chelsea helped design the organization’s innovative DNA program, which has facilitated the identification of over 200 previously unidentified human remains. Her work has been recognized in USA Today, The Guardian, The New York Times, The Washington Post, Al Jazeera, and other media. Chelsea holds a B.A. in Geography from the University of Arizona and an M.P.A. from Cornell University.",
@@ -381,12 +409,20 @@
     },
     {
       "Type": "space",
+      "Background": "#C6CDF7"
+    },
+    {
+      "Type": "space",
       "Background": "white"
     },
     {
       "Section": "Sandra Babcock",
       "Type": "title",
       "Background": "white"
+    },
+    {
+      "Type": "space",
+      "Background": "#C6CDF7"
     },
     {
       "Section": "Sandra Babcock is a Clinical Professor at Cornell Law School, where she is the Faculty Director and founder of the Cornell Center on the Death Penalty Worldwide (CCDPW). Over the last thirty years she has helped defend hundreds of men and women facing execution around the world. She began her career as a staff attorney at the Texas Resource Center, where she defended persons facing execution in post-conviction proceedings for four years. Following a five-year stint as a public defender in Minneapolis, she served for six years as the founding director of the Mexican Capital Legal Assistance Program, a project funded by the Government of Mexico to defend Mexican nationals facing the death penalty in the U.S. In that capacity she provided litigation support to attorneys around the country, defended Mexican nationals facing execution, and represented Mexico before the International Court of Justice in Avena and Other Mexican Nationals. In 2006, she became a Clinical Professor at Northwestern Law School, where she spearheaded a ten-year project in Malawi that ultimately resulted in the release of over 250 prisoners, 150 of whom were formerly sentenced to death. She moved to Cornell Law in 2014, where she founded the Cornell Center on the Death Penalty Worldwide. In 2018, together with her colleagues at CDPW, she launched the Alice Project, a global movement to end extreme sentencing of women and gender non-conforming individuals. Her clinic currently represents women facing the death penalty in the United States, Malawi, and Tanzania. She has authored numerous articles, book chapters and reports on the application of the death penalty under international law. She teaches classes in international human rights, gender rights, and the death penalty. In September 2021, she received the American Bar Association’s John Paul Stevens Guiding Hand of Counsel Award, given to one capital defender every two years whose work has improved the legal representation of persons facing the death penalty and contributed to systemic reform.",
@@ -397,6 +433,14 @@
       "Section": "babcock.jpg",
       "Type": "picture",
       "Background": "#C6CDF7"
+    },
+    {
+      "Type": "space",
+      "Background": "#C6CDF7"
+    },
+    {
+      "Type": "space",
+      "Background": "white"
     }
   ],
   "Fellows List": [
@@ -413,6 +457,10 @@
     {
       "Section": "In recognition of the expertise that formerly incarcerated people have gained through their lived experience, we have created the Future Freedoms Fellowship. This program provides a part time stipend and a small pool of career development funding to professionals who are interested in social justice advocacy and criminal legal system reform. Our goal is to provide returning community members with financial support, professional development opportunities, speaking engagements, advocacy training, and other tools to assist them with rebuilding careers after incarceration. Our fellows bring expertise to guide us in ensuring our organizational programming reflects the needs and desires of people who are still incarcerated. ",
       "Type": "normal",
+      "Background": "#C6CDF7"
+    },
+    {
+      "Type": "space",
       "Background": "#C6CDF7"
     },
     {
@@ -445,6 +493,10 @@
     {
       "Section": "Here you will find sample legal briefs, clemency petitions, resources on narrative construction, litigation manuals, and factsheets relating to the defense of women and gender minorities on the following key issues: gender-based violence, sex trafficking, coercive control, trauma, mental health, intersectional discrimination, prison conditions, and working with the media. The materials in our toolkit are free and easily accessible, with the vision that equipping diverse defense communities with these resources will advance advocacy on behalf of criminalized women, transgender people, and gender minorities.",
       "Type": "normal",
+      "Background": "#C6CDF7"
+    },
+    {
+      "Type": "space",
       "Background": "#C6CDF7"
     },
     {
@@ -543,6 +595,10 @@
     },
     {
       "Type": "space",
+      "Background": "#C6CDF7"
+    },
+    {
+      "Type": "space",
       "Background": "white"
     }
   ],
@@ -589,6 +645,10 @@
     {
       "Section": "Currently, there is a dearth of publicly accessible, reliable information on women sentenced to death around the world. We are committed to publishing data and research that increases knowledge about incarcerated women and their experiences. At the same time, we recognize that many incarcerated women do not wish to be publicly identified, and we believe in giving them control over how their stories are shared. For this reason, we do not share the names of people on death row or any information about their cases unless they or their legal representatives have given us express permission to do so. Where we receive that permission, we will share information on advocacy campaigns for women at risk of execution. We will also share anonymized data and studies that can assist in broadening awareness about the intersection of gender and the death penalty. ",
       "Type": "normal",
+      "Background": "#C6CDF7"
+    },
+    {
+      "Type": "space",
       "Background": "#C6CDF7"
     },
     {
