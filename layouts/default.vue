@@ -90,7 +90,18 @@
   </div>
 </template>
 
+<script setup>
+import { useWebsiteStore } from "~~/stores/website";
+const website = useWebsiteStore();
+website.fetch();
+</script>
+
 <script>
+// import { mapState } from "pinia";
+// import { useWebsiteStore } from "~~/stores/website";
+//import useWebsiteStore from "/stores/site.ts";
+//wait callOnce(website.fetch);
+
 import siteData from "~/public/cges/localization.json";
 
 export default {
@@ -102,6 +113,16 @@ export default {
       projects: siteData["Projects Categories"],
       show: { projects: false },
     };
+  },
+  mounted() {
+    fetch("/cges/test.json")
+      .then((response) => console.log("test", response.status) || response)
+      .then((response) => response.text())
+      .then((body) => console.log(body));
+    // THIS WORKS TO LOAD FILE DYNAMICALLY
+  },
+  computed: {
+    //...mapState(useWebsiteStore),
   },
   methods: {
     // async parse_from_url(url) {

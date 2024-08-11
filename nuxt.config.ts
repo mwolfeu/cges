@@ -9,7 +9,13 @@ export default defineNuxtConfig({
     base: "/cges/",
   },
   devtools: { enabled: true },
-  modules: ["@invictus.codes/nuxt-vuetify"],
+  modules: ["@invictus.codes/nuxt-vuetify", "@pinia/nuxt"],
+  imports: {
+    dirs: ["./stores"],
+  },
+  pinia: {
+    autoImports: ["defineStore", "acceptHMRUpdate"],
+  },
   vuetify: {
     /* vuetify options */
     vuetifyOptions: {
