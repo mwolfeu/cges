@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- {{ "hi" + JSON.stringify(websiteStore.data) }} -->
     <Carousel
       class="mt-4 h-75 ma-auto"
       :autoplay="4000"
@@ -93,15 +94,22 @@
 </template>
 
 <script setup>
-import { useWebsiteStore } from "~~/stores/website";
-const website = useWebsiteStore();
-//website.fetch();
+// import { useWebsiteStore } from "~~/stores/website";
+// const website = useWebsiteStore();
+// const site = website.data;
 </script>
 
 <script>
+import { mapStores } from "pinia";
+import { useWebsiteStore } from "~~/stores/website";
+// const website = useWebsiteStore();
+// const site = website.data;
+// const websiteStore = mapStores(useWebsiteStore);
+// console.log(websiteStore);
+
 import { Carousel, Pagination, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
-import siteData from "~/public/cges/localization.json";
+// import siteData from "~/public/cges/localization.json";
 import il from "~/components/ItemList.vue";
 // import { LoremIpsum } from "lorem-ipsum";
 // import * as XLSX from "xlsx/xlsx.mjs";
@@ -127,18 +135,26 @@ export default {
     //   }
     // }
     // document.getElementById("content-frame").onload = resizeIframe;
-
     // const wb = await this.parse_from_url("/cges/content.xlsx");
-    this.content = siteData["Landing"];
-    this.carousel = siteData["Carousel"];
+    // this.content = siteData["Landing"];
+    // this.carousel = siteData["Carousel"];
   },
   data() {
     return {
-      categories: [],
-      layout: "default",
-      content: [],
-      carousel: [],
+      //categories: [],
+      // layout: "default",
+      // content: [],
+      // carousel: [],
     };
+  },
+  computed: {
+    ...mapStores(useWebsiteStore),
+    content() {
+      return this.websiteStore.data["Landing"];
+    },
+    carousel() {
+      return this.websiteStore.data["Carousel"];
+    },
   },
   methods: {
     openPDF(name) {

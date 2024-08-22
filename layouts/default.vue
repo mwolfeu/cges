@@ -8,6 +8,7 @@
           </NuxtLink>
           <!-- <v-icon color="white">mdi-face-woman</v-icon> -->
           <div class="icon-text">Center on Gender and Extreme Sentencing</div>
+          <!-- {{ "hi" + site?.FAQ?.[0]?.["Organization:"] }} -->
         </div>
 
         <v-divider
@@ -15,7 +16,7 @@
           color="white"
         ></v-divider>
         <div v-if="!show.projects">
-          <span v-for="(c, i) of categories" :key="c">
+          <span v-for="(c, i) of site['Main Categories']" :key="c">
             <v-btn
               :to="c.link.startsWith('/') ? `${c.link}` : undefined"
               color="textl"
@@ -29,7 +30,7 @@
             <v-menu v-if="c.link == 'projects'" activator="#projects-activator">
               <v-list>
                 <v-list-item
-                  v-for="(item, index) in projects"
+                  v-for="(item, index) in site['Projects Categories']"
                   :key="index"
                   :value="index"
                   :to="item.link.startsWith('/') ? `${item.link}` : undefined"
@@ -91,34 +92,47 @@
 </template>
 
 <script setup>
-import { useWebsiteStore } from "~~/stores/website";
-const website = useWebsiteStore();
-website.fetch();
+// import { useWebsiteStore } from "~~/stores/website";
+// const website = useWebsiteStore();
+// const site = website.data;
+// //website.fetch();
 </script>
 
 <script>
 // import { mapState } from "pinia";
-// import { useWebsiteStore } from "~~/stores/website";
+import { useWebsiteStore } from "~~/stores/website";
 //import useWebsiteStore from "/stores/site.ts";
 //wait callOnce(website.fetch);
+const website = useWebsiteStore();
+const site = website.data;
+website.fetch();
+// console.log("mwmwmwmwmw", site);
+// if (site?.FAQ?.[0]?.["Organization:"]) {
+//   site.FAQ[0]["Organization:"] = "ugh";
+// }
 
-import siteData from "~/public/cges/localization.json";
+// import siteData from "~/public/cges/localization.json";
 
 export default {
   components: {},
   async mounted() {},
   data() {
     return {
-      categories: siteData["Main Categories"],
-      projects: siteData["Projects Categories"],
+      // categories: siteData["Main Categories"],
+      // projects: siteData["Projects Categories"],
       show: { projects: false },
     };
   },
   mounted() {
-    fetch("/cges/test.json")
-      .then((response) => console.log("test", response.status) || response)
-      .then((response) => response.text())
-      .then((body) => console.log(body));
+    // fetch("/site.json")
+    //   .then((response) => console.log("test", response.status) || response)
+    //   .then((response) => response.json())
+    //   .then((body) => this.website.assign(body));
+    // 404 in dev mode
+    // fetch("/cges/test.json")
+    // .then((response) => console.log("test", response.status) || response)
+    // .then((response) => response.text())
+    // .then((body) => console.log(body));
     // THIS WORKS TO LOAD FILE DYNAMICALLY
   },
   computed: {

@@ -1,12 +1,9 @@
 TODO:
 Add mailchimp to page
-Add Publications section after News & Events
-Make fetch override  - add json file location to readme
-  Working: layout.vue line 106 using fetch.
+X Make fetch override  - add json file location to readme
+X  Working: layout.vue line 106 using fetch.
 README - finish item card desc when functionality finalized
-
-integrate json cvt page, load new json over existing, write a question to stack "how do i not bundle imported json"
-
+  either link to external site or local pdf
 
 ###########
 PROJECT END

@@ -41,7 +41,9 @@
   </div>
 </template>
 <script>
-import siteData from "~/public/cges/localization.json";
+// import siteData from "~/public/cges/localization.json";
+import { mapStores } from "pinia";
+import { useWebsiteStore } from "~~/stores/website";
 
 export default {
   name: "ItemList",
@@ -58,12 +60,17 @@ export default {
       default: "w-100",
     },
   },
-  mounted() {},
-  data() {
-    return {
-      content: siteData[this.contentKey],
-    };
+  computed: {
+    ...mapStores(useWebsiteStore),
+    content() {
+      return this.websiteStore.data[this.contentKey];
+    },
   },
+  // data() {
+  //   return {
+  //     content: siteData[this.contentKey],
+  //   };
+  // },
   methods: {
     unquote(str) {
       if (

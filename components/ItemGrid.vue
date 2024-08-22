@@ -66,8 +66,16 @@
   </div>
 </template>
 
+<script setup>
+// import { useWebsiteStore } from "~~/stores/website";
+// const website = useWebsiteStore();
+// const siteData = website.data;
+</script>
+
 <script>
-import siteData from "~/public/cges/localization.json";
+import { mapStores } from "pinia";
+import { useWebsiteStore } from "~~/stores/website";
+// import siteData from "~/public/cges/localization.json";
 
 export default {
   props: {
@@ -84,21 +92,30 @@ export default {
   },
   async mounted() {
     //globalThis.CGEScontent.cardTypes
-    console.log("mw", await $fetch("/cges/localization.json"));
-    for (const t of siteData["Card Types"]) this.cardTypes[t.type] = t.color;
-
-    this.all = siteData[this.contentKey];
-    this.content = this.all;
-    this.types = [...new Set(this.content.map((d) => d.type.trim()))];
+    // console.log("mw", await $fetch("/cges/localization.json"));
+    // for (const t of siteData["Card Types"]) this.cardTypes[t.type] = t.color;
+    // this.all = siteData[this.contentKey];
+    // this.content = this.all;
+    // this.types = [...new Set(this.content.map((d) => d.type.trim()))];
   },
   data() {
     return {
       cardTypes: {},
-      types: [],
-      all: [],
-      content: [],
       filter: "All",
+      fcontent: null, // filtered content
     };
+  },
+  computed: {
+    ...mapStores(useWebsiteStore),
+    all() {
+      return this.websiteStore.data[this.contentKey] || [];
+    },
+    content() {
+      return this.fcontent || this.all;
+    },
+    types() {
+      return [...new Set(this.all.map((d) => d.type.trim()))];
+    },
   },
   methods: {
     parseURLs(s) {
@@ -110,8 +127,8 @@ export default {
     filterBy(type) {
       console.log("here");
       this.filter = type;
-      if (type == "All") this.content = this.all;
-      else this.content = this.all.filter((o) => o.type == type);
+      if (type == "All") this.fcontent = null;
+      else this.fcontent = this.all.filter((o) => o.type == type);
     },
   },
 };
