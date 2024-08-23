@@ -6,6 +6,7 @@ get box resources for resource hub
 Add mailchimp to page 
 Map: ?, add to readme
 deploy
+  please test donations
 test editing in place
 
 
@@ -42,7 +43,6 @@ try epub export instead of pdf? can include videos?
 All edits from meeting except color / map
 X Make fetch override  - add json file location to readme
 X  Working: layout.vue line 106 using fetch.
-
 
 04.08.24
 X change bg for wombo one.
