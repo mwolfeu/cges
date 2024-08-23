@@ -9,37 +9,57 @@
           <!-- <v-icon color="white">mdi-face-woman</v-icon> -->
           <div class="icon-text">Center on Gender and Extreme Sentencing</div>
           <!-- {{ "hi" + site?.FAQ?.[0]?.["Organization:"] }} -->
+          <!-- <div v-html="givegabHTML" /> -->
         </div>
 
         <v-divider
           class="border-opacity-50 mt-4 mb-4"
           color="white"
         ></v-divider>
-        <div v-if="!show.projects">
-          <span v-for="(c, i) of site['Main Categories']" :key="c">
-            <v-btn
-              :to="c.link.startsWith('/') ? `${c.link}` : undefined"
-              color="textl"
-              variant="text"
-              :text="`${c.category}`"
-              prepend-icon="mdi-square"
-              @click="toggleShow(c.link)"
-              :id="`${c.link}-activator`"
-            />
+        <div
+          v-if="!show.projects"
+          class="d-flex flex-nowrap justify-space-between"
+        >
+          <div />
+          <div>
+            <span v-for="(c, i) of site['Main Categories']" :key="c">
+              <v-btn
+                :to="c.link.startsWith('/') ? `${c.link}` : undefined"
+                color="textl"
+                variant="text"
+                :text="`${c.category}`"
+                prepend-icon="mdi-square"
+                @click="toggleShow(c.link)"
+                :id="`${c.link}-activator`"
+              />
 
-            <v-menu v-if="c.link == 'projects'" activator="#projects-activator">
-              <v-list>
-                <v-list-item
-                  v-for="(item, index) in site['Projects Categories']"
-                  :key="index"
-                  :value="index"
-                  :to="item.link.startsWith('/') ? `${item.link}` : undefined"
-                >
-                  <v-list-item-title>{{ item.category }}</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
-          </span>
+              <v-menu
+                v-if="c.link == 'projects'"
+                activator="#projects-activator"
+              >
+                <v-list>
+                  <v-list-item
+                    v-for="(item, index) in site['Projects Categories']"
+                    :key="index"
+                    :value="index"
+                    :to="item.link.startsWith('/') ? `${item.link}` : undefined"
+                  >
+                    <v-list-item-title>{{ item.category }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </span>
+          </div>
+          <v-btn
+            class="mt-6"
+            color="secondary"
+            text="Donate Now"
+            @click="
+              openTab(
+                'https://www.givegab.com/donation_widget?campaign_id=174243&group_id=508492&preview=%22%22'
+              )
+            "
+          />
         </div>
         <!-- C requested projects be a dropdown 16.06.24 -->
         <!-- <div v-if="show.projects">
@@ -121,9 +141,35 @@ export default {
       // categories: siteData["Main Categories"],
       // projects: siteData["Projects Categories"],
       show: { projects: false },
+      // givegabHTML: "",
     };
   },
   mounted() {
+    // const script = document.createElement("script");
+    // script.src =
+    //   "https://givegab.s3.amazonaws.com/donation-widget/givegab-button.js";
+    // document.body.appendChild(script);
+    // const onloadHandler = () => {
+    //   console.log("here");
+    //   this.givegabHTML = `<button
+    //           class="givegab-button"
+    //           data-campaign-id="174243"
+    //           data-host="https://www.givegab.com"
+    //           data-org-id="508492"
+    //           data-preview=""
+    //           style="background-color: #8fc1e3"
+    //         >
+    //           Donate Now
+    //         </button>
+    //   `;
+    // };
+    // script.onload = onloadHandler.bind(this);
+    // this.givegabHTML = `
+    //     <script src="https://givegab.s3.amazonaws.com/donation-widget/givegab-button.js" ></`;
+    // this.givegabHTML += `script>
+    //
+    //   `;
+    // document.getElementById("givegab").innerHTML = this.givegabHTML;
     // fetch("/site.json")
     //   .then((response) => console.log("test", response.status) || response)
     //   .then((response) => response.json())
@@ -161,16 +207,17 @@ export default {
 <style>
 /* @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap"); */
 /* @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap'); */
-@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Sen:wght@400..800&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Sen:wght@400..800&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 html {
-  font-family: "Sen", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-size: 16px;
 }
 
 .logo {
-  font-family: "Raleway", serif;
-  font-size: 40px;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 50px;
   font-weight: 700;
   color: white;
 }
@@ -178,8 +225,8 @@ html {
 .icon {
   background-image: url("/cges/img/logo.png");
   background-size: cover;
-  width: 70px;
-  height: 70px;
+  width: 90px;
+  height: 90px;
 }
 
 .icon-text {

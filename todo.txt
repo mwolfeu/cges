@@ -1,15 +1,28 @@
 TODO:
-Add mailchimp to page
-X Make fetch override  - add json file location to readme
-X  Working: layout.vue line 106 using fetch.
-README - finish item card desc when functionality finalized
-  either link to external site or local pdf
+convert to dir of csv
+About: add 2 ppl
+cards: link => local pdf or foreign site
+get box resources for resource hub
+Add mailchimp to page 
+Map: ?, add to readme
+deploy
+test editing in place
+
+
+Landing: Opportunites- mailchimp?
+Verify github is ok now that you are getting money.
+
+WAITING ON:
+carousel: new pix
+resources: link copy
 
 ###########
 PROJECT END
+clean up files
+remove localization.json
 Read finalized palette from vuetify.ts and use it in the JSON?
 check every usage of siteData.   not all of them could be overridden w fetch
-
+UPDATE card, font dox
 
 
 
@@ -24,6 +37,11 @@ Currently loading json in: default(menu items), index (carousel), itemgrid, list
 
 IF C DISLIKES PDF (CAROUSEL)
 try epub export instead of pdf? can include videos?
+
+23.08.24
+All edits from meeting except color / map
+X Make fetch override  - add json file location to readme
+X  Working: layout.vue line 106 using fetch.
 
 
 04.08.24

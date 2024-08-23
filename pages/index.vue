@@ -11,7 +11,7 @@
         <v-img
           class="carousel__item"
           :src="`/cges/img/${row.picture}`"
-          @click="openPDF(row.file)"
+          @deprecated-click="openPDF(row.file)"
         >
           <div
             style="

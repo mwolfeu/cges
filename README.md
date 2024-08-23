@@ -2,14 +2,16 @@
 
 ## Overview
 
-To allow dynamic content with a minimum of programming knowledge, all components are controlled by a single content file (JSON). For ease of use, this file can be a Google Sheets file or any other similar tool that can be converted to the required JSON.
+To allow dynamic content with a minimum of programming knowledge, components are controlled by a single JSON structure. For ease of use, this is derived from the spreadsheet file "content.xlsx" at the repository root.
 
 As an example: In the building of this project, all changes were:
 
-- Staged in a Google Sheet file
+- Edit Google Sheet file
 - Exported as XLXS
-- Converted to JSON with https://kinoar.github.io/xlsx-to-json/
-- Uploaded to GitHub
+- Navigate to cges/docs/content.xlsx in the repository
+- Click on edit (pencil) and change the name of the file to YYMMDDcontent.xlsx and commit the changes
+- Navigate to cges/docs
+- Upload the exported google content.xlsx file
 
 **Location:**
 
@@ -17,8 +19,9 @@ As an example: In the building of this project, all changes were:
 
 The fonts and their respective uses are listed below. For consistency, please use the same when creating PDFs for the carousel. All fonts used are provided free of charge by Google.
 
-**Headers**: Raleway
-**Content**: Avenir
+**Headers**: Raleway - Deprecated
+**Content**: Avenir - Deprecated
+**ALL FONT**: Noto Sans
 
 ## Components and columns in the JSON
 
@@ -27,6 +30,7 @@ There are three basic programmatic components created for this project. They are
 - Carousel component
 - Grid component
 - List component
+- Map component
 
 The rest of this document will be devoted to documenting each column required for each of the above components.
 
@@ -38,7 +42,7 @@ Columns
 
 - picture: The JPEG file name
 - title: The visible label for the picture
-- file: The PDF file name that will be opened when clicked
+- file: The PDF file name that will be opened when clicked or empty
 
 #### Carousel Images
 
@@ -90,11 +94,9 @@ This creates a grid of info boxes (cards). If the items specified in the sheet h
 - title: The card title
 - subtitle: The card subtitle
 - abstract_image: The image that will appear in the card
-  abstract
-  body
-  type
-  is_dialog
-  attachments
+- abstract: Abstract text
+- type: Item rubric (If there are multiple types, the filter will show.)
+- link: Card link when clicked.
 
 ## ===
 
