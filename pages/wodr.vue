@@ -15,6 +15,23 @@
     </v-card-subtitle>
 
     <v-card-text>
+      <svg-map
+        :map="World"
+        class="ma-10"
+        :location-class="getLocationClass"
+        @mouseover="pointLocation"
+        @mouseout="unpointLocation"
+        @mousemove="moveOnLocation"
+      />
+      <div
+        class="examples__block__map__tooltip"
+        :style="
+          'position: fixed; width: 200px; padding: 10px; border: 1px solid darkgray; background-color: white; ' +
+          tooltipStyle
+        "
+      >
+        {{ pointedLocation }}
+      </div>
       MAP nav w mouse/kbd
       <br />
       legend: Abolitionist, Abolitionist for common law crimes, De facto
@@ -38,19 +55,53 @@
 </template>
 
 <script>
-import il from "../components/ItemList.vue";
-import ig from "../components/ItemGrid.vue";
+// import il from "../components/ItemList.vue";
+// import ig from "../components/ItemGrid.vue";
+import { SvgMap } from "vue3-svg-map";
+import World from "./world.js";
 
 export default {
   components: {
-    il,
-    ig,
+    // il,
+    // ig,
+    SvgMap,
   },
   props: {},
   mounted() {},
   data() {
-    return {};
+    return { World, pointedLocation: null, tooltipStyle: null };
   },
-  methods: {},
+  methods: {
+    getLocationName(node) {
+      if (node?.attributes?.name) return node && node.attributes.name.value;
+    },
+    getSelectedLocationName(map, locationId) {
+      return (
+        locationId &&
+        map.locations.find((location) => location.id === locationId).name
+      );
+    },
+    pointLocation(event) {
+      this.pointedLocation = this.getLocationName(event.target);
+    },
+    unpointLocation(event) {
+      this.pointedLocation = null;
+      this.tooltipStyle = { display: "none" };
+    },
+    moveOnLocation(event) {
+      // this.tooltipStyle = {
+      //   display: "block",
+      //   top: `${event.clientY + 10}px`,
+      //   left: `${event.clientX - 100}px`,
+      // };
+      this.tooltipStyle = `display:block; top:${event.clientY + 10}px; left:${
+        event.clientX - 100
+      }px;`;
+    },
+    getLocationClass(location, index) {
+      // Generate heat map
+      return `svg-map__location svg-map__location--heat${index % 4}`;
+    },
+  },
 };
 </script>

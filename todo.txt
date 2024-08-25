@@ -1,17 +1,19 @@
 TODO:
-convert to dir of csv
-About: add 2 ppl
-cards: link => local pdf or foreign site
-get box resources for resource hub
-Add mailchimp to page 
-Map: ?, add to readme
+
+x Map: ?, add to readme
 deploy
-  please test donations
+  please test donations, mailchimp (delete my access if working)
+  think about grid resource hub: maybe title(none), subtitle(date), abstract(name) because titles are soooo long
 test editing in place
+
+add li "resources.vue" 
+x mv ig attachments => link & document it
 
 
 Landing: Opportunites- mailchimp?
 Verify github is ok now that you are getting money.
+ctrl/shift/r to hard reload after changing
+long dash issue when copy pasting
 
 WAITING ON:
 carousel: new pix
@@ -38,6 +40,17 @@ Currently loading json in: default(menu items), index (carousel), itemgrid, list
 
 IF C DISLIKES PDF (CAROUSEL)
 try epub export instead of pdf? can include videos?
+
+
+25.08.24
+About: add 2 ppl
+X Add mailchimp to page 
+Manuals:  Defending Women and Transgender Persons Facing Extreme Sentences:  A Practical Guide
+Litigation Tools: Petition to the Inter-American Commission on Human Rights on Behalf of Lisa Montgomery
+Clemency Materials: Petition for Clemency by Melissa Lucio
+Bibliography:  one document, attached
+Reports: Judged for More Than Her Crime (more to come)
+Academic Article: Gender, Violence, and the Death Penalty
 
 23.08.24
 All edits from meeting except color / map

@@ -32,13 +32,14 @@
           v-for="c of content"
           :key="c"
           :style="`width: 300px; border-top: 2px solid ${cardTypes[c.type]};`"
+          @click="openURL(c.attachments)"
         >
           <v-card-item>
-            <v-card-title v-if="'title' in c"
-              ><b>{{ c.title }}</b></v-card-title
-            >
+            <v-card-title v-if="'title' in c" style="text-wrap: wrap">
+              <b>{{ unquote(c.title) }}</b>
+            </v-card-title>
             <v-card-subtitle v-if="'subtitle' in c">{{
-              c.subtitle
+              unquote(c.subtitle)
             }}</v-card-subtitle>
             <template v-slot:prepend v-if="'abstract_image' in c">
               <v-avatar size="64" rounded="0">
@@ -48,17 +49,17 @@
           </v-card-item>
           <v-card-text>
             <div v-if="'abstract' in c">{{ c.abstract }}</div>
-            <div v-if="'attachments' in c">
-              <div v-for="(a, i) in parseURLs(c.attachments)">
-                <div
-                  class="pt-3"
-                  @click="openURL(a)"
-                  style="font-weight: 700; cursor: pointer"
-                >
-                  Attachment {{ i + 1 }}
-                </div>
-              </div>
-            </div>
+            <!-- <div v-if="'attachments' in c"> -->
+            <!-- <div v-for="(a, i) in parseURLs(c.attachments)"> -->
+            <!-- <div
+                class="pt-3"
+                @click="openURL(a)"
+                style="font-weight: 700; cursor: pointer"
+              >
+                Link {{ i + 1 }}
+              </div> -->
+            <!-- </div> -->
+            <!-- </div> -->
           </v-card-text>
         </v-card>
       </div>
@@ -118,11 +119,20 @@ export default {
     },
   },
   methods: {
-    parseURLs(s) {
-      return s.split(" ").filter((u) => u != "");
+    unquote(str) {
+      if (
+        (str.startsWith('"') && str.endsWith('"')) ||
+        (str.startsWith("'") && str.endsWith("'"))
+      )
+        return str.slice(1, -1); // Return the substring
+      return str;
     },
+    // parseURLs(s) {
+    //   return s.split(" ").filter((u) => u != "");
+    // },
     openURL(url) {
-      window.open(url, "_blank");
+      if (url.startsWith("http")) window.open(url, "_blank");
+      else window.open("/cges/pdf/" + url, "_blank");
     },
     filterBy(type) {
       console.log("here");
