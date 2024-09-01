@@ -26,11 +26,11 @@
       <div
         class="examples__block__map__tooltip"
         :style="
-          'position: fixed; width: 200px; padding: 10px; border: 1px solid darkgray; background-color: white; ' +
+          'position: fixed; width: fit-content; padding: 10px; border: 1px solid darkgray; background-color: rgba(255, 255, 255, 0.95); ' +
           tooltipStyle
         "
       >
-        {{ pointedLocation }}
+        <div v-html="pointedLocation" />
       </div>
       MAP nav w mouse/kbd
       <br />
@@ -57,6 +57,9 @@
 <script>
 // import il from "../components/ItemList.vue";
 // import ig from "../components/ItemGrid.vue";
+import { mapStores } from "pinia";
+import { useWebsiteStore } from "~~/stores/website";
+
 import { SvgMap } from "vue3-svg-map";
 import World from "./world.js";
 
@@ -67,13 +70,30 @@ export default {
     SvgMap,
   },
   props: {},
-  mounted() {},
   data() {
-    return { World, pointedLocation: null, tooltipStyle: null };
+    return {
+      World,
+      pointedLocation: null,
+      tooltipStyle: null,
+      mapData: null,
+    };
   },
+  computed: {
+    ...mapStores(useWebsiteStore),
+    locationKey() {
+      const lk = {};
+      const mapData = this.websiteStore.data["WODR Map"];
+      (mapData || []).forEach((l) => (lk[l.ISO] = l));
+      return lk;
+    },
+  },
+  mounted() {},
   methods: {
     getLocationName(node) {
       if (node?.attributes?.name) return node && node.attributes.name.value;
+    },
+    getLocationID(node) {
+      if (node?.attributes?.id) return node && node.attributes.id.value;
     },
     getSelectedLocationName(map, locationId) {
       return (
@@ -83,6 +103,18 @@ export default {
     },
     pointLocation(event) {
       this.pointedLocation = this.getLocationName(event.target);
+      if (this.pointedLocation) {
+        const id = this.getLocationID(event.target).toUpperCase();
+        const lk = this.locationKey[id];
+        if (lk) {
+          this.pointedLocation += `<br/>Women: ${lk.WODR}<br/>Crime: ${
+            lk.Crime || "N/A"
+          }<br/>Type: ${lk.Legend}`;
+        } else {
+          // CGES has no data
+          this.pointedLocation += `<br/>Women: N/A<br/>Crime: N/A`;
+        }
+      }
     },
     unpointLocation(event) {
       this.pointedLocation = null;
@@ -94,14 +126,52 @@ export default {
       //   top: `${event.clientY + 10}px`,
       //   left: `${event.clientX - 100}px`,
       // };
-      this.tooltipStyle = `display:block; top:${event.clientY + 10}px; left:${
-        event.clientX - 100
-      }px;`;
+      if (this.pointedLocation)
+        this.tooltipStyle = `display:block; top:${event.clientY + 10}px; left:${
+          event.clientX - 100
+        }px;`;
+      else this.tooltipStyle = "";
     },
     getLocationClass(location, index) {
       // Generate heat map
-      return `svg-map__location svg-map__location--heat${index % 4}`;
+      const legend = [
+        "Abolitionist",
+        "Abolitionist for common law crimes",
+        "De facto abolitionist",
+        "Retentionist",
+      ];
+      const id = location.id.toUpperCase();
+      const lk = this.locationKey[id];
+      if (lk) {
+        return `svg-map__location svg-map__location--heat${legend.indexOf(
+          lk.Legend
+        )}`;
+      } else {
+        return `svg-map__location svg-map__location--heat-na`;
+      }
     },
   },
 };
 </script>
+
+<style>
+.svg-map__location {
+  stroke: rgba(0, 0, 0, 0.2);
+  stroke-width: 1px;
+}
+.svg-map__location--heat0 {
+  fill: #75d7cd;
+}
+.svg-map__location--heat1 {
+  fill: #0071c5;
+}
+.svg-map__location--heat2 {
+  fill: #004792;
+}
+.svg-map__location--heat3 {
+  fill: #2c3968;
+}
+.svg-map__location--heat-na {
+  fill: #98bec4;
+}
+</style>

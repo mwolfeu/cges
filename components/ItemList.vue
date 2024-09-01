@@ -41,7 +41,6 @@
   </div>
 </template>
 <script>
-// import siteData from "~/public/cges/localization.json";
 import { mapStores } from "pinia";
 import { useWebsiteStore } from "~~/stores/website";
 

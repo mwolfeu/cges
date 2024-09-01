@@ -1,17 +1,13 @@
 TODO:
 
-x Map: ?, add to readme
-deploy
-  please test donations, mailchimp (delete my access if working)
-  think about grid resource hub: maybe title(none), subtitle(date), abstract(name) because titles are soooo long
-test editing in place
-
+write bahar status / deploy
+Map kbd, add to readme
+test editing in place 
 add li "resources.vue" 
-x mv ig attachments => link & document it
 
 
+Alpha all cards?
 Landing: Opportunites- mailchimp?
-Verify github is ok now that you are getting money.
 ctrl/shift/r to hard reload after changing
 long dash issue when copy pasting
 
@@ -42,6 +38,11 @@ IF C DISLIKES PDF (CAROUSEL)
 try epub export instead of pdf? can include videos?
 
 
+01.09.24
+x mv ig attachments => link & document it
+Bahar's list 
+Map (except kbd control)
+
 25.08.24
 About: add 2 ppl
 X Add mailchimp to page 
@@ -51,6 +52,10 @@ Clemency Materials: Petition for Clemency by Melissa Lucio
 Bibliography:  one document, attached
 Reports: Judged for More Than Her Crime (more to come)
 Academic Article: Gender, Violence, and the Death Penalty
+deploy
+  please test donations, mailchimp (delete my access if working)
+  think about grid resource hub: maybe title(none), subtitle(date), abstract(name) because titles are soooo long
+
 
 23.08.24
 All edits from meeting except color / map
