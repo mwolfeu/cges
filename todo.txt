@@ -1,8 +1,5 @@
 TODO:
-
-write bahar status / deploy
-Map kbd, add to readme
-test editing in place 
+Map add to readme
 add li "resources.vue" 
 
 
@@ -39,6 +36,8 @@ try epub export instead of pdf? can include videos?
 
 
 01.09.24
+write bahar status / deploy
+test editing in place 
 x mv ig attachments => link & document it
 Bahar's list 
 Map (except kbd control)

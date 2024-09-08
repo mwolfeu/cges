@@ -15,9 +15,33 @@
     </v-card-subtitle>
 
     <v-card-text>
+      <v-select
+        id="countrySelect"
+        v-model="selectedCountry"
+        label="Select a Country"
+        density="compact"
+        :items="countryList"
+        item-title="Name"
+        item-value="ISO"
+        @update:modelValue="onCountrySelect"
+        class="w-25 mt-10 ml-8"
+        style="min-width: 200px"
+      />
+      <div class="w-25 ml-8">
+        <div
+          style="
+            min-width: 200px;
+            margin-top: -10px;
+            position: absolute;
+            background-color: #fff9;
+            width: fit-content;
+          "
+          v-html="hint"
+        />
+      </div>
       <svg-map
         :map="World"
-        class="ma-10"
+        class="ma-10 mt-0"
         :location-class="getLocationClass"
         @mouseover="pointLocation"
         @mouseout="unpointLocation"
@@ -32,10 +56,6 @@
       >
         <div v-html="pointedLocation" />
       </div>
-      MAP nav w mouse/kbd
-      <br />
-      legend: Abolitionist, Abolitionist for common law crimes, De facto
-      abolitionist, Retentionist
     </v-card-text>
 
     <v-card-subtitle class="d-flex justify-center">
@@ -76,10 +96,15 @@ export default {
       pointedLocation: null,
       tooltipStyle: null,
       mapData: null,
+      selectedCountry: null,
+      hint: "",
     };
   },
   computed: {
     ...mapStores(useWebsiteStore),
+    countryList() {
+      return this.websiteStore?.data["WODR Map"] || [];
+    },
     locationKey() {
       const lk = {};
       const mapData = this.websiteStore.data["WODR Map"];
@@ -87,7 +112,12 @@ export default {
       return lk;
     },
   },
-  mounted() {},
+  // mounted() {
+  //   window.addEventListener("scroll", this.handleScroll);
+  // },
+  // beforeDestroy() {
+  //   window.removeEventListener("scroll", this.handleScroll);
+  // },
   methods: {
     getLocationName(node) {
       if (node?.attributes?.name) return node && node.attributes.name.value;
@@ -102,6 +132,7 @@ export default {
       );
     },
     pointLocation(event) {
+      if (!event.target.attributes?.name) return;
       this.pointedLocation = this.getLocationName(event.target);
       if (this.pointedLocation) {
         const id = this.getLocationID(event.target).toUpperCase();
@@ -126,11 +157,14 @@ export default {
       //   top: `${event.clientY + 10}px`,
       //   left: `${event.clientX - 100}px`,
       // };
-      if (this.pointedLocation)
+      // console.log(event);
+      if (this.pointedLocation) {
+        this.selectedCountry = null;
+        this.hint = "";
         this.tooltipStyle = `display:block; top:${event.clientY + 10}px; left:${
           event.clientX - 100
         }px;`;
-      else this.tooltipStyle = "";
+      } else this.tooltipStyle = "";
     },
     getLocationClass(location, index) {
       // Generate heat map
@@ -150,6 +184,36 @@ export default {
         return `svg-map__location svg-map__location--heat-na`;
       }
     },
+    onCountrySelect(ISO) {
+      const lk = this.locationKey[ISO];
+      if (lk) {
+        this.hint = `<b>Women:</b> ${lk.WODR} <br/><b>Crime:</b> ${
+          lk.Crime || "N/A"
+        } <br/><b>Type:</b> ${lk.Legend}`;
+      } else {
+        // CGES has no data
+        this.hint += `<br/>Women: N/A<br/>Crime: N/A`;
+      }
+      return;
+      // const node = {
+      //   target: {
+      //     attributes: {
+      //       name: { value: this.locationKey[ISO].Name },
+      //       id: { value: ISO },
+      //     },
+      //   },
+      // };
+      // this.pointLocation(node);
+      // const el = document.getElementById("countrySelect");
+      // const rect = el.getBoundingClientRect();
+      // this.tooltipStyle = `display:block; top:${rect.bottom + 10}px; left:${
+      //   rect.left - 10
+      // }px;`;
+    },
+    // handleScroll() {
+    //   this.selectedCountry = null;
+    //   this.unpointLocation();
+    // },
   },
 };
 </script>
