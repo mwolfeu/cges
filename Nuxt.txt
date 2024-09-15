@@ -1,35 +1,9 @@
 WATCH:
 npm run dev
 
-DEPLOY:
+DEPLOY: (from project root)
 npx nuxi generate
 cp -ar .output/public/* docs/
-cd docs/
-cp -ar cges/* .
-git add docs
-
 cp -ar docs/cges/* docs && git add docs
-git commit -am "deploy" && git pu
+git commit -am "deploy" && git push
 
-
-
-
-#!/bin/bash
-
-# Change directory to the specified path
-cd ~/Desktop/Git/cges || { echo "Failed to cd into ~/Desktop/Git/cges"; exit 1; }
-
-# Run the nuxi generate command
-npx nuxi generate
-if [ $? -ne 0 ]; then
-  echo "npx nuxi generate failed"
-  exit 1
-fi
-
-# Copy files from docs/cges to docs and add them to git
-cp -ar docs/cges/* docs/
-git add docs
-
-# Commit and push changes
-git commit -am "deploy"
-git push

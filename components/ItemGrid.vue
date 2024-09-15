@@ -31,24 +31,24 @@
         <v-card
           v-for="c of content"
           :key="c"
-          :style="`width: 300px; border-top: 2px solid ${cardTypes[c.type]};`"
-          @click="openURL(c.attachments)"
+          :style="`width: 300px; border-top: 2px solid ${cardTypes[c.Type]};`"
+          @click="openURL(c.Attachments)"
         >
           <v-card-item>
-            <v-card-title v-if="'title' in c" style="text-wrap: wrap">
-              <b>{{ unquote(c.title) }}</b>
+            <v-card-title v-if="'Title' in c" style="text-wrap: wrap">
+              <b>{{ unquote(c.Title) }}</b>
             </v-card-title>
-            <v-card-subtitle v-if="'subtitle' in c">{{
-              unquote(c.subtitle)
+            <v-card-subtitle v-if="'Subtitle' in c">{{
+              unquote(c.Subtitle)
             }}</v-card-subtitle>
-            <template v-slot:prepend v-if="'abstract_image' in c">
+            <template v-slot:prepend v-if="'Image' in c">
               <v-avatar size="64" rounded="0">
-                <v-img :src="`/cges/img/${c.abstract_image}`"></v-img>
+                <v-img :src="`/cges/img/${c.Image}`"></v-img>
               </v-avatar>
             </template>
           </v-card-item>
           <v-card-text>
-            <div v-if="'abstract' in c">{{ c.abstract }}</div>
+            <div v-if="'Abstract' in c">{{ c.Abstract }}</div>
             <!-- <div v-if="'attachments' in c"> -->
             <!-- <div v-for="(a, i) in parseURLs(c.attachments)"> -->
             <!-- <div
@@ -115,7 +115,7 @@ export default {
       return this.fcontent || this.all;
     },
     types() {
-      return [...new Set(this.all.map((d) => d.type.trim()))];
+      return [...new Set(this.all.map((d) => d.Type.trim()))];
     },
   },
   methods: {
@@ -138,7 +138,7 @@ export default {
       console.log("here");
       this.filter = type;
       if (type == "All") this.fcontent = null;
-      else this.fcontent = this.all.filter((o) => o.type == type);
+      else this.fcontent = this.all.filter((o) => o.Type == type);
     },
   },
 };

@@ -1,25 +1,30 @@
 TODO:
-Map add to readme
-add li "resources.vue" 
+Docs: add a new PDF
 
 
 Alpha all cards?
 Landing: Opportunites- mailchimp?
-ctrl/shift/r to hard reload after changing
 long dash issue when copy pasting
 
 WAITING ON:
-carousel: new pix
-resources: link copy
+Jennifer
+  set up w static site
+  
+  Access to photoshop? make Thumbnails
+  Get logo
+  Carousel images
+  Normalize pix?
+  Set colors/spacing in xlsx
+    ask for more fcns
+  sheet vs UI colors. : tell me what you want
 
 ###########
 PROJECT END
-clean up files
+clean up files / sheets
+Remove references to parallax/pictures
 remove localization.json
 Read finalized palette from vuetify.ts and use it in the JSON?
-check every usage of siteData.   not all of them could be overridden w fetch
-UPDATE card, font dox
-
+Rename cols to be saner
 
 
 
@@ -34,6 +39,10 @@ Currently loading json in: default(menu items), index (carousel), itemgrid, list
 IF C DISLIKES PDF (CAROUSEL)
 try epub export instead of pdf? can include videos?
 
+15.09.24
+Cleaned up
+add li "resources.vue" 
+add PDF
 
 01.09.24
 write bahar status / deploy

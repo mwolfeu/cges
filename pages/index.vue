@@ -88,7 +88,7 @@
           </div>
         </v-row>
       </div> -->
-    <il contentKey="Landing" />
+    <il contentKey="Landing List" />
     <!-- </div> -->
   </div>
 </template>
