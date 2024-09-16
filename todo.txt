@@ -1,5 +1,6 @@
 TODO:
 Docs: add a new PDF
+Change col names in md, add picture to li
 
 
 Alpha all cards?

@@ -29,7 +29,9 @@ That said, nothing will likely get lost while hosting on Github as git saves fil
 The fonts and their respective uses are listed below. For consistency, please use the same when creating PDFs for the carousel. All fonts used are provided free of charge by Google.
 
 **Headers**: Raleway - Deprecated
+
 **Content**: Avenir - Deprecated
+
 **ALL FONT**: Noto Sans
 
 ## Components and columns in the config files
@@ -76,21 +78,23 @@ In its simplest form, all content would be in one sheet. For the advanced nested
 
 NOTE: If using a spreadsheet, Section content can be enclosed in "".
 
-- Section: Text copy
+- Text: Text copy
 - Type: The type of content in the row (See below)
 - Foreground: Foreground (text) HTML color
 - Background: Background HTML color
-- Notes: Arbitrary designer notes
 
 #### Row "type" values
 
 Accepted values and functions are:
 
-**title:** The section text should be in a large font
-**normal:** The section text should be in a normal font
-**space:** Used to pad space between two text sections
-**bg-image:** Specify the name of a sheet in the _Section_ column to nest into this one. Additionally, encapsulate the content in an image specified in the _Background_ column.
-**bg-parallax:** Specify the name of a sheet in the _Section_ column to nest into this one. Additionally, encapsulate the content in an image specified in the _Background_ column.
+-title: The section text should be in a large font
+-normal: The section text should be in a normal font
+-space: Used to pad space between two text sections
+-picture: A centered image
+
+Deprecated
+-bg-image: Specify the name of a sheet in the _Section_ column to nest into this one. Additionally, encapsulate the content in an image specified in the _Background_ column.
+-bg-parallax: Specify the name of a sheet in the _Section_ column to nest into this one. Additionally, encapsulate the content in an image specified in the _Background_ column.
 
 #### List Component Images
 
@@ -100,12 +104,16 @@ Accepted values and functions are:
 
 This creates a grid of info boxes (cards). If the items specified in the sheet have multiple types, a filter component will appear on the side to select between sub-groups.
 
-- title: The card title
-- subtitle: The card subtitle
-- abstract_image: The image that will appear in the card
-- abstract: Abstract text
-- type: Item rubric (If there are multiple types, the filter will show.)
-- link: Card link when clicked, if any.
+- Title: The card title
+- Subtitle: The card subtitle
+- Image: The image that will appear in the card
+- Abstract: Abstract text
+- Attachments: Card action when clicked. Can be a PDF name or a full URL.
+- Type: Item rubric (If there are multiple types, the filter will show.)
+
+#### Card Component Images
+
+**Location:** cges/public/cges/img
 
 ### Map
 
