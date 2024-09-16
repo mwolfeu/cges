@@ -87,14 +87,15 @@ NOTE: If using a spreadsheet, Section content can be enclosed in "".
 
 Accepted values and functions are:
 
--title: The section text should be in a large font
--normal: The section text should be in a normal font
--space: Used to pad space between two text sections
--picture: A centered image
+- title: The section text should be in a large font
+- normal: The section text should be in a normal font
+- space: Used to pad space between two text sections
+- picture: A centered image
 
 Deprecated
--bg-image: Specify the name of a sheet in the _Section_ column to nest into this one. Additionally, encapsulate the content in an image specified in the _Background_ column.
--bg-parallax: Specify the name of a sheet in the _Section_ column to nest into this one. Additionally, encapsulate the content in an image specified in the _Background_ column.
+
+- bg-image: Specify the name of a sheet in the _Section_ column to nest into this one. Additionally, encapsulate the content in an image specified in the _Background_ column.
+- bg-parallax: Specify the name of a sheet in the _Section_ column to nest into this one. Additionally, encapsulate the content in an image specified in the _Background_ column.
 
 #### List Component Images
 
