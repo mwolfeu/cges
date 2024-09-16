@@ -116,6 +116,10 @@ This creates a grid of info boxes (cards). If the items specified in the sheet h
 
 **Location:** cges/public/cges/img
 
+#### Card Component PDFs
+
+**Location:** cges/public/cges/pdf
+
 ### Map
 
 This creates the map in the WODR section.
