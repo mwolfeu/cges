@@ -10,7 +10,7 @@
           :value="item"
           :active="item == filter"
           rounded="xl"
-          color="secondary"
+          :color="site?.AppColors?.[0]?.Primary ?? '#b1b7c1'"
           @click="() => filterBy(item)"
         >
           <template v-slot:prepend>
@@ -27,7 +27,6 @@
         <b>{{ content.length }}</b> Found:
       </div>
       <div class="d-flex flex-wrap ga-6 justify-left pa-4">
-        <!-- title	subtitle	abstract_image	abstract	body	attachments	is_dialog	type -->
         <v-card
           v-for="c of content"
           :key="c"
@@ -49,17 +48,6 @@
           </v-card-item>
           <v-card-text>
             <div v-if="'Abstract' in c">{{ c.Abstract }}</div>
-            <!-- <div v-if="'attachments' in c"> -->
-            <!-- <div v-for="(a, i) in parseURLs(c.attachments)"> -->
-            <!-- <div
-                class="pt-3"
-                @click="openURL(a)"
-                style="font-weight: 700; cursor: pointer"
-              >
-                Link {{ i + 1 }}
-              </div> -->
-            <!-- </div> -->
-            <!-- </div> -->
           </v-card-text>
         </v-card>
       </div>
@@ -67,38 +55,21 @@
   </div>
 </template>
 
-<script setup>
-// import { useWebsiteStore } from "~~/stores/website";
-// const website = useWebsiteStore();
-// const siteData = website.data;
-</script>
+<script setup></script>
 
 <script>
 import { mapStores } from "pinia";
 import { useWebsiteStore } from "~~/stores/website";
-// import siteData from "~/public/cges/localization.json";
 
 export default {
   props: {
-    // items: {
-    //   type: Array,
-    //   required: true,
-    //   default: Array,
-    // },
     contentKey: {
       type: String,
       required: true,
       default: "",
     },
   },
-  async mounted() {
-    //globalThis.CGEScontent.cardTypes
-    // console.log("mw", await $fetch("/cges/localization.json"));
-    // for (const t of siteData["Card Types"]) this.cardTypes[t.type] = t.color;
-    // this.all = siteData[this.contentKey];
-    // this.content = this.all;
-    // this.types = [...new Set(this.content.map((d) => d.type.trim()))];
-  },
+  async mounted() {},
   data() {
     return {
       cardTypes: {},
@@ -127,9 +98,6 @@ export default {
         return str.slice(1, -1); // Return the substring
       return str;
     },
-    // parseURLs(s) {
-    //   return s.split(" ").filter((u) => u != "");
-    // },
     openURL(url) {
       if (url.startsWith("http")) window.open(url, "_blank");
       else window.open("/cges/pdf/" + url, "_blank");

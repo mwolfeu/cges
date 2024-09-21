@@ -66,11 +66,6 @@
         World Coalition Against the Death Penalty.
       </div>
     </v-card-subtitle>
-
-    <!-- <v-card-actions>
-      <v-btn color="primary">Learn More</v-btn>
-      <v-btn color="secondary">Share</v-btn>
-    </v-card-actions> -->
   </v-card>
 </template>
 
@@ -100,6 +95,11 @@ export default {
       hint: "",
     };
   },
+  watch: {
+    "websiteStore.data.AppColors"() {
+      this.setColors();
+    },
+  },
   computed: {
     ...mapStores(useWebsiteStore),
     countryList() {
@@ -112,13 +112,45 @@ export default {
       return lk;
     },
   },
-  // mounted() {
-  //   window.addEventListener("scroll", this.handleScroll);
+  // beforeRouteEnter(to, from, next) {
+  //   console.log("enter");
+  //   this.setColors();
+  //   next();
   // },
-  // beforeDestroy() {
-  //   window.removeEventListener("scroll", this.handleScroll);
-  // },
+  updated() {
+    console.log("updated");
+    this.setColors();
+  },
   methods: {
+    addDynamicRule(el, color) {
+      // Dynamically create a style tag
+      const style = document.createElement("style");
+      style.type = "text/css";
+
+      // Define your dynamic CSS rule
+      const cssRule = `
+        ${el} {
+          fill: ${color};
+        }
+      `;
+
+      // Insert the CSS rule into the style tag
+      style.appendChild(document.createTextNode(cssRule));
+
+      // Append the style tag to the document head
+      document.head.appendChild(style);
+    },
+    setColors() {
+      this.addDynamicRule();
+      console.log("Set Colors");
+      const colors = this.websiteStore?.data["AppColors"];
+      if (!colors || colors?.length == 0) return;
+
+      for (let i = 0; i < 5; i++) {
+        if (colors[0][`map-color-${i}`])
+          this.addDynamicRule(`.map-color-${i}`, colors[0][`map-color-${i}`]);
+      }
+    },
     getLocationName(node) {
       if (node?.attributes?.name) return node && node.attributes.name.value;
     },
@@ -169,6 +201,7 @@ export default {
     getLocationClass(location, index) {
       // Generate heat map
       const legend = [
+        "",
         "Abolitionist",
         "Abolitionist for common law crimes",
         "De facto abolitionist",
@@ -177,11 +210,9 @@ export default {
       const id = location.id.toUpperCase();
       const lk = this.locationKey[id];
       if (lk) {
-        return `svg-map__location svg-map__location--heat${legend.indexOf(
-          lk.Legend
-        )}`;
+        return `svg-map__location map-color-${legend.indexOf(lk.Legend)}`;
       } else {
-        return `svg-map__location svg-map__location--heat-na`;
+        return `svg-map__location map-color-0`;
       }
     },
     onCountrySelect(ISO) {
@@ -195,25 +226,7 @@ export default {
         this.hint += `<br/>Women: N/A<br/>Crime: N/A`;
       }
       return;
-      // const node = {
-      //   target: {
-      //     attributes: {
-      //       name: { value: this.locationKey[ISO].Name },
-      //       id: { value: ISO },
-      //     },
-      //   },
-      // };
-      // this.pointLocation(node);
-      // const el = document.getElementById("countrySelect");
-      // const rect = el.getBoundingClientRect();
-      // this.tooltipStyle = `display:block; top:${rect.bottom + 10}px; left:${
-      //   rect.left - 10
-      // }px;`;
     },
-    // handleScroll() {
-    //   this.selectedCountry = null;
-    //   this.unpointLocation();
-    // },
   },
 };
 </script>
@@ -222,20 +235,22 @@ export default {
 .svg-map__location {
   stroke: rgba(0, 0, 0, 0.2);
   stroke-width: 1px;
+  transition: fill 1s;
 }
-.svg-map__location--heat0 {
+
+.map-color-0 {
+  fill: #b1b7c1;
+}
+/* .map-color-1 {
   fill: #75d7cd;
 }
-.svg-map__location--heat1 {
+.map-color-2 {
   fill: #0071c5;
 }
-.svg-map__location--heat2 {
+.map-color-3 {
   fill: #004792;
 }
-.svg-map__location--heat3 {
+.map-color-4 {
   fill: #2c3968;
-}
-.svg-map__location--heat-na {
-  fill: #98bec4;
-}
+} */
 </style>
