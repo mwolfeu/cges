@@ -126,6 +126,8 @@ export default {
       // Dynamically create a style tag
       const style = document.createElement("style");
       style.type = "text/css";
+      //style["data-dyncss"] = true;
+      style.dataset.dyncss = true;
 
       // Define your dynamic CSS rule
       const cssRule = `
@@ -141,6 +143,9 @@ export default {
       document.head.appendChild(style);
     },
     setColors() {
+      const existing = document.querySelectorAll(`style[data-dyncss]`);
+      if (existing.length) return;
+
       this.addDynamicRule();
       console.log("Set Colors");
       const colors = this.websiteStore?.data["AppColors"];

@@ -1,5 +1,6 @@
 TODO:
 Docs: add a new PDF
+set colors once 
 
 
 Alpha all cards?
