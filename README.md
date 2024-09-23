@@ -90,7 +90,7 @@ Using Google Docs to generate documents is recommended as they are assured to ha
 This creates a sectioned vertical list of text items that can each have their respective foreground and background color. The component allows nesting such that content is further encapsulated in a static or parallax image.
 In its simplest form, all content would be in one sheet. For the advanced nested functionality, the main sheet specifies the background image and nests the content of secondary sheets .
 
-NOTE: If using a spreadsheet, Section content can be enclosed in "".
+NOTE: Text content can be enclosed in "".
 
 - Text: Text copy
 - Type: The type of content in the row (See below)
@@ -101,8 +101,8 @@ NOTE: If using a spreadsheet, Section content can be enclosed in "".
 
 Accepted values and functions are:
 
-- title: The section text should be in a large font
-- normal: The section text should be in a normal font
+- title: The section text should be in a large font and centered
+- normal: The section text should be in a normal font and left justified
 - space: Used to pad space between two text sections
 - picture: A centered image
 

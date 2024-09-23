@@ -1,5 +1,6 @@
 TODO:
 Delete Todo
+UI text colors?
 
 Jennifer
   Logo
