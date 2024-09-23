@@ -24,6 +24,20 @@ If the core code is ever modified and re-deployed, verify that backups of all ch
 
 That said, nothing will likely get lost while hosting on Github as git saves file versions automatically.
 
+## App Colors
+
+The XLSX contains a sheet AppColors wherein UI related colors can be modified.
+
+The headers are:
+
+- Primary: The top and bottom app bars
+- Secondary: The donate button
+- map-color-0: Countries with no data
+- map-color-1: Abolitionist
+- map-color-2: Abolitionist for common law crimes
+- map-color-3: De facto abolitionist
+- map-color-4: Retentionist
+
 ## Fonts
 
 The fonts and their respective uses are listed below. For consistency, please use the same when creating PDFs for the carousel. All fonts used are provided free of charge by Google.
