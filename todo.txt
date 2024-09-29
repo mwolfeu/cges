@@ -1,6 +1,4 @@
 TODO:
-Delete Todo
-UI text colors?
 
 Jennifer
   Logo
@@ -8,6 +6,9 @@ Jennifer
   Carousel images
   Normalize / Optimize images for web
   Set colors/spacing in xlsx
+
+29.09.24
+Added C's final requests
 
 22.09.24
 AppColors sheet
