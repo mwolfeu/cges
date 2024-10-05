@@ -110,6 +110,28 @@
         })(jQuery);
         var $mcj = jQuery.noConflict(true);
       </script>
+      <script>
+        // This is nonstandard code Chelsea requires
+        // select the target node
+        var target = document.getElementById("mce-success-response");
+        const chelseas_msg =
+          "<div style='color: black'>Thank you for your interest in accessing our resource hub, you will be added to a box folder by a member of our staff where you can access the resource hub materials, please let us know if you have any questions.</div>";
+
+        // create an observer instance
+        var observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (mutation) {
+            if (target.innerHTML === "Thank you for subscribing!") {
+              target.innerHTML = chelseas_msg;
+            }
+          });
+        });
+
+        // configuration of the observer:
+        var config = { attributes: true, childList: true, characterData: true };
+
+        // pass in the target node, as well as the observer options
+        observer.observe(target, config);
+      </script>
     </div>
   </body>
 </html>
